@@ -13,7 +13,7 @@
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/pages/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrates, be awarrre some stuff may not work fer us in this trrranslat&#39;n. Like table of rrramblings, see&#39;ng Merrrmaids, do&#39;ng math or chemistrrry and stuff.
 In Cap&#39;n Hugo, planks be th&#39; core o&#39; yer ship. Once it be configured, planks be definitely th&#39; added value t&#39; yer documentat&#39;n ship.
-Folders Org&#39;nize yer ship like any other Cap&#39;n Hugo project. Typically, ye will have a rrrambl&#39;n folder wit&#39; all yer planks.</description>
+Folders Org&#39;nize yer ship like any other Cap&#39;n Hugo project . Typically, ye will have a rrrambl&#39;n folder wit&#39; all yer planks.</description>
     </item>
     <item>
       <title>Arrrchetypes</title>
@@ -21,7 +21,7 @@ Folders Org&#39;nize yer ship like any other Cap&#39;n Hugo project. Typically, 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/archetypes/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrates, be awarrre some stuff may not work fer us in this trrranslat&#39;n. Like table of rrramblings, see&#39;ng Merrrmaids, do&#39;ng math or chemistrrry and stuff.
-Us&#39;n th&#39; command: hugo new [relative new rrrambl&#39;n path], ye can start a rrrambl&#39;n file wit&#39; th&#39; date an&#39; title automatically set. While this be a welcome feature, active writers need more: archetypes. These be preconfigured skeleton planks wit&#39; default frontmatter.</description>
+Us&#39;n th&#39; command: hugo new [relative new rrrambl&#39;n path], ye can start a rrrambl&#39;n file wit&#39; th&#39; date an&#39; title automatically set. While this be a welcome feature, active writers need more: archetypes . These be preconfigured skeleton planks wit&#39; default frontmatter.</description>
     </item>
     <item>
       <title>Multilingual an&#39; i18n</title>
@@ -48,7 +48,7 @@ Marrrkdown be a better way t&#39; write HTML, without all th&#39; complexities a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/syntaxhighlight/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrates, be awarrre some stuff may not work fer us in this trrranslat&#39;n. Like table of rrramblings, see&#39;ng Merrrmaids, do&#39;ng math or chemistrrry and stuff.
-Th&#39; Relearrrn theme uses Hugo&amp;rsquo;s built-in rules highlight&#39;n fer code.
+Th&#39; Relearrrn theme uses Hugo&amp;amp;rsquo;s built-in rules highlight&#39;n fer code.
 Marrrkdown rules Wrap th&#39; code block wit&#39; three backticks an&#39; th&#39; name o&#39; th&#39; language. Highlight will try t&#39; auto detect th&#39; language if one be not provided.
 ```json [ { &amp;#34;title&amp;#34;: &amp;#34;apples&amp;#34;, &amp;#34;count&amp;#34;: [12000, 20000], &amp;#34;description&amp;#34;: {&amp;#34;text&amp;#34;: &amp;#34;.</description>
     </item>
@@ -68,8 +68,8 @@ Example from th&#39; current website:</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/icons/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrates, be awarrre some stuff may not work fer us in this trrranslat&#39;n. Like table of rrramblings, see&#39;ng Merrrmaids, do&#39;ng math or chemistrrry and stuff.
-Th&#39; Relearrrn theme fer Cap&#39;n Hugo loads th&#39; Font Awesome library, allow&#39;n ye t&#39; easily display any ay&#39;con or logo avail&#39;ble &#39;n th&#39; Font Awesome free collect&#39;n.
-Find&#39;n an ay&#39;con Browse through th&#39; avail&#39;ble ay&#39;cons &#39;n th&#39; Font Awesome Gallery. Notice that th&#39; free filter be enabled, as only th&#39; free ay&#39;cons be avail&#39;ble by default.</description>
+Th&#39; Relearrrn theme fer Cap&#39;n Hugo loads th&#39; &amp;lt;strong&amp;gt;Font Awesome&amp;lt;/strong&amp;gt; library, allow&#39;n ye t&#39; easily display any ay&#39;con or logo avail&#39;ble &#39;n th&#39; Font Awesome free collect&#39;n.
+Find&#39;n an ay&#39;con Browse through th&#39; avail&#39;ble ay&#39;cons &#39;n th&#39; Font Awesome Gallery . Notice that th&#39; free filter be enabled, as only th&#39; free ay&#39;cons be avail&#39;ble by default.</description>
     </item>
     <item>
       <title>Tags</title>
