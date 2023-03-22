@@ -40,7 +40,9 @@ The theme is a fork of the great [Learn theme](https://github.com/matcornic/hugo
 - File inclusion
 ## Installation
 
-Visit the [installation instructions](https://mcshelby.github.io/hugo-theme-relearn/basics/installation) to learn how to setup the theme in your Hugo installation.
+Hugo Them Installation [installation instructions](https://mcshelby.github.io/hugo-theme-relearn/basics/installation) to learn how to setup the theme in your Hugo installation.
+
+Launch Code Installation [configuration](https://github.com/LaunchCode-Hugo-Submodules/hugo-theme-relearn/blob/main/lc-hugo-config.md)
 
 ## Usage
 
