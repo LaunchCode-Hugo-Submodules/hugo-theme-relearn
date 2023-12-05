@@ -1,13 +1,13 @@
 +++
 title = "Menu extra shortcuts"
-weight = 5
+weight = 6
 +++
 
 You can define additional menu entries or shortcuts in the navigation menu without any link to content.
 
 ## Basic configuration
 
-Edit the website configuration `config.toml` and add a `[[menu.shortcuts]]` entry for each link your want to add.
+Edit the website configuration `hugo.toml` and add a `[[menu.shortcuts]]` entry for each link your want to add.
 
 Example from the current website:
 
@@ -20,7 +20,7 @@ weight = 10
 
 [[menu.shortcuts]]
 name = "<i class='fas fa-fw fa-camera'></i> Showcases"
-url = "more/showcase/"
+url = "showcase/"
 weight = 11
 
 [[menu.shortcuts]]
@@ -54,79 +54,109 @@ Read more about [hugo menu](https://gohugo.io/extras/menus/) and [hugo i18n tran
 
 ## Configuration for Multilingual mode {#i18n}
 
-When using a multilingual website, you can set different menus for each language. In the `config.toml` file, prefix your menu configuration by `Languages.<language-id>`.
+When using a multilingual website, you can set different menus for each language. In the `hugo.toml` file, prefix your menu configuration by `Languages.<language-id>`.
 
 Example from the current website:
 
 ````toml
-[Languages]
-  [Languages.en]
+[languages]
+  [languages.en]
     title = "Hugo Relearn Theme"
     weight = 1
     languageName = "English"
-    landingPageURL = "/"
-    landingPageName = "<i class='fas fa-home'></i> Home"
+    [languages.en.params]
+      landingPageName = "<i class='fas fa-home'></i> Home"
 
-  [[Languages.en.menu.shortcuts]]
+  [[languages.en.menu.shortcuts]]
     name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
     identifier = "ds"
     url = "https://github.com/McShelby/hugo-theme-relearn"
     weight = 10
 
-  [[Languages.en.menu.shortcuts]]
+  [[languages.en.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-camera'></i> Showcases"
-    url = "more/showcase/"
+    pageRef = "showcase/"
     weight = 11
 
-  [[Languages.en.menu.shortcuts]]
+  [[languages.en.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
     identifier = "hugodoc"
     url = "https://gohugo.io/"
     weight = 20
 
-  [[Languages.en.menu.shortcuts]]
+  [[languages.en.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
-    url = "more/credits/"
+    pageRef = "more/credits/"
     weight = 30
 
-  [[Languages.en.menu.shortcuts]]
+  [[languages.en.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-tags'></i> Tags"
-    url = "tags/"
+    pageRef = "tags/"
     weight = 40
 
-  [Languages.pir]
+  [languages.pir]
     title = "Cap'n Hugo Relearrrn Theme"
     weight = 1
     languageName = "Arrr! Pirrrates"
-    landingPageURL = "/pir/"
-    landingPageName = "<i class='fas fa-home'></i> Arrr! Home"
+    [languages.pir.params]
+      landingPageName = "<i class='fas fa-home'></i> Arrr! Home"
 
-  [[Languages.pir.menu.shortcuts]]
+  [[languages.pir.menu.shortcuts]]
     name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
     identifier = "ds"
     url = "https://github.com/McShelby/hugo-theme-relearn"
     weight = 10
 
-  [[Languages.pir.menu.shortcuts]]
+  [[languages.pir.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-camera'></i> Showcases"
-    url = "more/showcase/"
+    pageRef = "showcase/"
     weight = 11
 
-  [[Languages.pir.menu.shortcuts]]
+  [[languages.pir.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-bookmark'></i> Cap'n Hugo Documentat'n"
     identifier = "hugodoc"
     url = "https://gohugo.io/"
     weight = 20
 
-  [[Languages.pir.menu.shortcuts]]
+  [[languages.pir.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-bullhorn'></i> Crrredits"
-    url = "more/credits/"
+    pageRef = "more/credits/"
     weight = 30
 
-  [[Languages.pir.menu.shortcuts]]
+  [[languages.pir.menu.shortcuts]]
     name = "<i class='fas fa-fw fa-tags'></i> Arrr! Tags"
-    url = "tags/"
+    pageRef = "tags/"
     weight = 40
 ````
 
 Read more about [hugo menu](https://gohugo.io/extras/menus/) and [hugo multilingual menus](https://gohugo.io/content-management/multilingual/#menus)
+
+## Shortcuts to pages inside of your project
+
+If you have shortcuts to pages inside of your project and you don't want them to show up in page menu section, you have two choices:
+
+1. Make the page file for the shortcut a [headless branch bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) (contained in its own subdirectory and called `_index.md`) and add the following frontmatter configuration to the file (see exampleSite's `content/showcase/_index.en.md`). This causes its content to **not** be ontained in the sitemap.
+
+    ````toml
+    title = "Showcase"
+    [_build]
+      render = "always"
+      list = "never"
+      publishResources = true
+    ````
+
+2. Store the page file for the shortcut below a parent headless branch bundle and add the following frontmatter to he **parent** (see exampleSite's `content/more/_index.en.md`).
+
+    ````toml
+    # title = "More" ### ATTENTION: Don't give this page a title as this will cause it to be in the breadcrumbs - a thing you most likely don't want
+    [_build]
+      render = "never"
+      list = "never"
+      publishResources = false
+    ````
+
+    In this case, the file itself can be a branch bundle, leaf bundle or simple page (see exampleSite's `content/more/credits.en.md`). This causes its content to be contained in the sitemap.
+
+    ````toml
+    title = "Credits"
+    ````
