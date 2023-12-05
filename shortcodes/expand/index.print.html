@@ -3,126 +3,185 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <meta name="generator" content="Hugo 0.111.3">
-    <meta name="generator" content="Relearn 5.6.5+tip">
+    <meta name="generator" content="Hugo 0.120.4">
+    <meta name="generator" content="Relearn 5.23.2+tip">
     <meta name="description" content="Expandable/collapsible sections of text">
     <meta name="author" content="Sören Weber">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/images/hero.png">
+    <meta name="twitter:title" content="Expand :: Hugo Relearn Theme">
+    <meta name="twitter:description" content="Expandable/collapsible sections of text">
+    <meta property="og:title" content="Expand :: Hugo Relearn Theme">
+    <meta property="og:description" content="Expandable/collapsible sections of text">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/expand/index.html">
+    <meta property="og:image" content="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/images/hero.png">
+    <meta property="article:section" content="Shortcodes :: Hugo Relearn Theme">
+    <meta property="og:site_name" content="Hugo Relearn Theme">
     <title>Expand :: Hugo Relearn Theme</title>
+    <link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/expand/index.html" rel="alternate" hreflang="x-default">
+    <link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/expand/index.html" rel="alternate" hreflang="en">
+    <link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/expand/index.html" rel="alternate" hreflang="art-pir">
     <link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/expand/index.html" rel="canonical" type="text/html" title="Expand :: Hugo Relearn Theme">
     <link href="../../shortcodes/expand/index.xml" rel="alternate" type="application/rss+xml" title="Expand :: Hugo Relearn Theme">
-    <link href="../../images/logo.svg?1679497864" rel="icon" type="image/svg+xml">
+    <link href="../../images/logo.svg?1701790833" rel="icon" type="image/svg+xml">
     <!-- https://github.com/filamentgroup/loadCSS/blob/master/README.md#how-to-use -->
-    <link href="../../css/fontawesome-all.min.css?1679497865" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1679497865" rel="stylesheet"></noscript>
-    <link href="../../css/featherlight.min.css?1679497865" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/featherlight.min.css?1679497865" rel="stylesheet"></noscript>
-    <link href="../../css/auto-complete.css?1679497865" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1679497865" rel="stylesheet"></noscript>
-    <link href="../../css/perfect-scrollbar.min.css?1679497865" rel="stylesheet">
-    <link href="../../css/nucleus.css?1679497865" rel="stylesheet">
-    <link href="../../css/fonts.css?1679497865" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1679497865" rel="stylesheet"></noscript>
-    <link href="../../css/theme.css?1679497865" rel="stylesheet">
-    <link href="../../css/theme-relearn-light.css?1679497865" rel="stylesheet" id="variant-style">
-    <link href="../../css/ie.css?1679497865" rel="stylesheet">
-    <link href="../../css/variant.css?1679497865" rel="stylesheet">
-    <link href="../../css/print.css?1679497865" rel="stylesheet" media="print">
-    <link href="../../css/format-print.css?1679497865" rel="stylesheet">
-    <script src="../../js/url.js?1679497865"></script>
-    <script src="../../js/variant.js?1679497865"></script>
+    <link href="../../css/fontawesome-all.min.css?1701790834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fontawesome-all.min.css?1701790834" rel="stylesheet"></noscript>
+    <link href="../../css/nucleus.css?1701790834" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1701790834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/auto-complete.css?1701790834" rel="stylesheet"></noscript>
+    <link href="../../css/perfect-scrollbar.min.css?1701790834" rel="stylesheet">
+    <link href="../../css/fonts.css?1701790834" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;"><noscript><link href="../../css/fonts.css?1701790834" rel="stylesheet"></noscript>
+    <link href="../../css/theme.css?1701790834" rel="stylesheet">
+    <link href="../../css/theme-relearn-auto.css?1701790834" rel="stylesheet" id="R-variant-style">
+    <link href="../../css/chroma-relearn-auto.css?1701790834" rel="stylesheet" id="R-variant-chroma-style">
+    <link href="../../css/variant.css?1701790834" rel="stylesheet">
+    <link href="../../css/print.css?1701790834" rel="stylesheet" media="print">
+    <link href="../../css/format-print.css?1701790834" rel="stylesheet">
+    <link href="../../css/ie.css?1701790834" rel="stylesheet">
+    <script src="../../js/url.js?1701790834"></script>
+    <script src="../../js/variant.js?1701790834"></script>
     <script>
       // hack to let hugo tell us how to get to the root when using relativeURLs, it needs to be called *url= for it to do its magic:
       // https://github.com/gohugoio/hugo/blob/145b3fcce35fbac25c7033c91c1b7ae6d1179da8/transform/urlreplacers/absurlreplacer.go#L72
       window.index_js_url="../../index.search.js";
       var root_url="../../";
       var baseUri=root_url.replace(/\/$/, '');
+      window.relearn = window.relearn || {};
+      window.relearn.baseUriFull='https:\/\/LaunchCode-Hugo-Submodules.github.io\/hugo-theme-relearn/';
+      // variant stuff
+      window.relearn.themeVariantModifier='';
+      window.variants && variants.init( [ 'relearn-auto', 'relearn-light', 'relearn-dark', 'relearn-bright', 'zen-auto', 'zen-light', 'zen-dark', 'neon', 'learn', 'blue', 'green', 'red' ] );
       // translations
-      window.T_Copy_to_clipboard = 'Copy to clipboard';
-      window.T_Copied_to_clipboard = 'Copied to clipboard!';
-      window.T_Copy_link_to_clipboard = 'Copy link to clipboard';
-      window.T_Link_copied_to_clipboard = 'Copied link to clipboard!';
-      window.T_No_results_found = 'No results found for \u0022{0}\u0022';
-      window.T_N_results_found = '{1} results found for \u0022{0}\u0022';
-      // some further base stuff
-      var baseUriFull='https:\/\/LaunchCode-Hugo-Submodules.github.io\/hugo-theme-relearn/';
-      window.variants && variants.init( [ 'relearn-light', 'relearn-dark', 'learn', 'neon', 'blue', 'green', 'red' ] );
+      window.T_Copy_to_clipboard = `Copy to clipboard`;
+      window.T_Copied_to_clipboard = `Copied to clipboard!`;
+      window.T_Copy_link_to_clipboard = `Copy link to clipboard`;
+      window.T_Link_copied_to_clipboard = `Copied link to clipboard!`;
+      window.T_Reset_view = `Reset view`;
+      window.T_View_reset = `View reset!`;
+      window.T_No_results_found = `No results found for "{0}"`;
+      window.T_N_results_found = `{1} results found for "{0}"`;
     </script>
-    <script src="../../js/jquery.min.js?1679497865" defer></script>
+    <style>
+      #R-body img.bg-white {
+        background-color: white;
+      }
+    </style>
   </head>
   <body class="mobile-support print disableInlineCopyToClipboard" data-url="../../shortcodes/expand/index.html">
-    <div id="body" class="default-animation">
-      <div id="sidebar-overlay"></div>
-      <div id="toc-overlay"></div>
-      <nav id="topbar" class="highlightable" dir="ltr">
-        <div>
-          <div id="breadcrumbs">
-            <span id="sidebar-toggle-span">
-              <a href="#" id="sidebar-toggle" title='Menu (CTRL+ALT+n)'><i class="fas fa-bars fa-fw"></i></a>
-            </span>
-            <ol class="links" itemscope itemtype="http://schema.org/BreadcrumbList">
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../index.html"><span itemprop="name">Hugo Relearn Theme</span></a><meta itemprop="position" content="1"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../shortcodes/index.html"><span itemprop="name">Shortcodes</span></a><meta itemprop="position" content="2"> > </li>
-              <li itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Expand</span><meta itemprop="position" content="3"></li>
-            </ol>
+    <div id="R-body" class="default-animation">
+      <div id="R-body-overlay"></div>
+      <nav id="R-topbar">
+        <div class="topbar-wrapper">
+          <div class="topbar-sidebar-divider"></div>
+          <div class="topbar-area topbar-area-start" data-area="start">
+            <div class="topbar-button topbar-button-sidebar" data-content-empty="disable" data-width-s="show" data-width-m="hide" data-width-l="hide"><button class="topbar-control" onclick="toggleNav()" type="button" title="Menu (CTRL&#43;ALT&#43;n)"><i class="fa-fw fas fa-bars"></i></button>
+            </div>
+          </div>
+          <ol class="topbar-breadcrumbs breadcrumbs highlightable" itemscope itemtype="http://schema.org/BreadcrumbList"><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><a itemprop="item" href="../../shortcodes/index.html"><span itemprop="name">Shortcodes</span></a><meta itemprop="position" content="1">&nbsp;>&nbsp;</li><li
+            itemscope itemtype="https://schema.org/ListItem" itemprop="itemListElement"><span itemprop="name">Expand</span><meta itemprop="position" content="2"></li>
+          </ol>
+          <div class="topbar-area topbar-area-end" data-area="end">
           </div>
         </div>
       </nav>
-      <main id="body-inner" class="highlightable default" tabindex="-1">
+      <div id="R-main-overlay"></div>
+      <main id="R-body-inner" class="highlightable default" tabindex="-1">
         <div class="flex-block-wrapper">
-          <div id="head-tags">
-          </div>
           <article class="default">
+            <header class="headline">
+            </header>
 <h1 id="expand">Expand</h1>
 
 <p>The <code>expand</code> shortcode displays an expandable/collapsible section of text.</p>
 
 <div class="expand">
-    <a class="expand-label" onclick="$t=$(this); if($t.parent('.expand-expanded.expand-marked').length){ $t.next().css('display','none') }else if($t.parent('.expand-marked').length){ $t.next().css('display','block') }else{ $t.next('.expand-content').slideToggle(100); } $t.parent().toggleClass('expand-expanded');">
+    <input type="checkbox" id="R-expand-e06774b34e5ac2cb5b4c16d22d1e6229" aria-controls="R-expandcontent-e06774b34e5ac2cb5b4c16d22d1e6229" >
+    <label class="expand-label" for="R-expand-e06774b34e5ac2cb5b4c16d22d1e6229" >
         <i class="fas fa-chevron-down"></i>
-        <i class="fas fa-chevron-left expand-rtl direction-ltr"></i>
-        <i class="fas fa-chevron-right expand-ltr direction-ltr"></i>
-        Expand me...
-    </a>
-    <div class="expand-content" style="display: none;">
-Thank you!
-    </div>
+        <i class="fas fa-chevron-right"></i>
+        Expand me&hellip;
+    </label>
+    <div id="R-expandcontent-e06774b34e5ac2cb5b4c16d22d1e6229" class="expand-content">
+
+<p>Thank you!</p>
+<p>That&rsquo;s some text with a footnote<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p>That&rsquo;s some more text with a footnote.<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>And that&rsquo;s the footnote.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Anything of interest goes here.</p>
+<p>Blue light glows blue.&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div class="box notices cstyle note">
+  <div class="box-label"><i class="fa-fw fas fa-exclamation-circle"></i> Note</div>
+  <div class="box-content">
+
+<p>This only works in modern browsers flawlessly. While Internet Explorer 11 has issues in displaying it, the functionality still works.</p>
+</div>
 </div>
 <h2 id="usage">Usage</h2>
 <p>While the examples are using shortcodes with named parameter you are free to use positional as well or also call this shortcode from your own partials.</p>
 
-<div class="tab-panel">
+<div class="tab-panel" data-tab-group="shortcode-parameter">
   <div class="tab-nav">
+    <div class="tab-nav-title">&#8203;</div>
     <button
       data-tab-item="shortcode"
-      data-tab-group="shortcode-parameter"
-      class="tab-nav-button direction-ltr active"
+      class="tab-nav-button tab-panel-style cstyle initial active" tabindex="-1"
       onclick="switchTab('shortcode-parameter','shortcode')"
-      ><span>shortcode</span></button>
+    >
+      <span class="tab-nav-text">shortcode</span>
+    </button>
     <button
-      data-tab-item="shortcode (positional)"
-      data-tab-group="shortcode-parameter"
-      class="tab-nav-button direction-ltr "
-      onclick="switchTab('shortcode-parameter','shortcode (positional)')"
-      ><span>shortcode (positional)</span></button>
+      data-tab-item="shortcode-positional"
+      class="tab-nav-button tab-panel-style cstyle initial"
+      onclick="switchTab('shortcode-parameter','shortcode-positional')"
+    >
+      <span class="tab-nav-text">shortcode (positional)</span>
+    </button>
     <button
       data-tab-item="partial"
-      data-tab-group="shortcode-parameter"
-      class="tab-nav-button direction-ltr "
+      class="tab-nav-button tab-panel-style cstyle initial"
       onclick="switchTab('shortcode-parameter','partial')"
-      ><span>partial</span></button>
+    >
+      <span class="tab-nav-text">partial</span>
+    </button>
   </div>
-  <div class="tab-content">
-    <div data-tab-item="shortcode" data-tab-group="shortcode-parameter" class="tab-item active">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Expand me...&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Thank</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span>
-</span></span></code></pre></div>
+  <div class="tab-content-container">
+    <div
+      data-tab-item="shortcode"
+      class="tab-content tab-panel-style cstyle initial active">
+      <div class="tab-content-text">
+
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Expand me...&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Thank</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div></div>
     </div>
-    <div data-tab-item="shortcode (positional)" data-tab-group="shortcode-parameter" class="tab-item ">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="s">&#34;Expand me...&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Thank</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span>
-</span></span></code></pre></div>
+    <div
+      data-tab-item="shortcode-positional"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="s">&#34;Expand me...&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Thank</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div></div>
     </div>
-    <div data-tab-item="partial" data-tab-group="shortcode-parameter" class="tab-item ">
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;shortcodes/expand.html&#34;</span> <span class="p">(</span><span class="nx">dict</span>
-</span></span><span class="line"><span class="cl">  <span class="s">&#34;context&#34;</span> <span class="p">.</span>
+    <div
+      data-tab-item="partial"
+      class="tab-content tab-panel-style cstyle initial">
+      <div class="tab-content-text">
+
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span> <span class="nx">partial</span> <span class="s">&#34;shortcodes/expand.html&#34;</span> <span class="p">(</span><span class="nx">dict</span>
+</span></span><span class="line"><span class="cl">  <span class="s">&#34;page&#34;</span>  <span class="p">.</span>
 </span></span><span class="line"><span class="cl">  <span class="s">&#34;title&#34;</span> <span class="s">&#34;Expand me...&#34;</span>
 </span></span><span class="line"><span class="cl">  <span class="s">&#34;content&#34;</span> <span class="s">&#34;Thank you!&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">)}}</span>
-</span></span></code></pre></div>
+</span></span><span class="line"><span class="cl"><span class="p">)}}</span></span></span></code></pre></div></div>
     </div>
   </div>
 </div>
@@ -130,64 +189,62 @@ Thank you!
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">Position</th>
-<th style="text-align:left">Default</th>
-<th style="text-align:left">Notes</th>
+<th>Name</th>
+<th>Position</th>
+<th>Default</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>title</strong></td>
-<td style="text-align:left">1</td>
-<td style="text-align:left"><code>&quot;Expand me...&quot;</code></td>
-<td style="text-align:left">Arbitrary text to appear next to the expand/collapse icon.</td>
+<td><strong>title</strong></td>
+<td>1</td>
+<td><code>&quot;Expand me...&quot;</code></td>
+<td>Arbitrary text to appear next to the expand/collapse icon.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>open</strong></td>
-<td style="text-align:left">2</td>
-<td style="text-align:left"><code>false</code></td>
-<td style="text-align:left">When <code>true</code> the content text will be initially shown as expanded.</td>
+<td><strong>open</strong></td>
+<td>2</td>
+<td><code>false</code></td>
+<td>When <code>true</code> the content text will be initially shown as expanded.</td>
 </tr>
 <tr>
-<td style="text-align:left"><em><strong>&lt;content&gt;</strong></em></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"><em>&lt;empty&gt;</em></td>
-<td style="text-align:left">Arbitrary text to be displayed on expand.</td>
+<td><em><strong>&lt;content&gt;</strong></em></td>
+<td></td>
+<td><em>&lt;empty&gt;</em></td>
+<td>Arbitrary text to be displayed on expand.</td>
 </tr>
 </tbody>
 </table>
 <h2 id="examples">Examples</h2>
 <h3 id="all-defaults">All Defaults</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Yes</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">did</span> <span class="nx">it</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span>
-</span></span></code></pre></div>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span><span class="nx">Yes</span><span class="p">,</span> <span class="nx">you</span> <span class="nx">did</span> <span class="nx">it</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
 <div class="expand">
-    <a class="expand-label" onclick="$t=$(this); if($t.parent('.expand-expanded.expand-marked').length){ $t.next().css('display','none') }else if($t.parent('.expand-marked').length){ $t.next().css('display','block') }else{ $t.next('.expand-content').slideToggle(100); } $t.parent().toggleClass('expand-expanded');">
+    <input type="checkbox" id="R-expand-4142dee60e37cb4dde1b3dba21c48606" aria-controls="R-expandcontent-4142dee60e37cb4dde1b3dba21c48606" >
+    <label class="expand-label" for="R-expand-4142dee60e37cb4dde1b3dba21c48606" >
         <i class="fas fa-chevron-down"></i>
-        <i class="fas fa-chevron-left expand-rtl direction-ltr"></i>
-        <i class="fas fa-chevron-right expand-ltr direction-ltr"></i>
-        Expand me...
-    </a>
-    <div class="expand-content" style="display: none;">
-Yes, you did it!
-    </div>
+        <i class="fas fa-chevron-right"></i>
+        Expand me&hellip;
+    </label>
+    <div id="R-expandcontent-4142dee60e37cb4dde1b3dba21c48606" class="expand-content">
+<p>
+Yes, you did it!</div>
 </div>
 <h3 id="initially-expanded">Initially Expanded</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Expand me...&#34;</span> <span class="nx">open</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">No</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">press</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span>
-</span></span></code></pre></div>
-<div class="expand expand-expanded">
-    <a class="expand-label" onclick="$t=$(this); if($t.parent('.expand-expanded.expand-marked').length){ $t.next().css('display','none') }else if($t.parent('.expand-marked').length){ $t.next().css('display','block') }else{ $t.next('.expand-content').slideToggle(100); } $t.parent().toggleClass('expand-expanded');">
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Expand me...&#34;</span> <span class="nx">open</span><span class="p">=</span><span class="s">&#34;true&#34;</span> <span class="o">%</span><span class="p">}}</span><span class="nx">No</span> <span class="nx">need</span> <span class="nx">to</span> <span class="nx">press</span> <span class="nx">you</span><span class="p">!{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
+<div class="expand">
+    <input type="checkbox" id="R-expand-f8d47ec5b44a5ade79d26748e5ca3495" aria-controls="R-expandcontent-f8d47ec5b44a5ade79d26748e5ca3495"  checked>
+    <label class="expand-label" for="R-expand-f8d47ec5b44a5ade79d26748e5ca3495" >
         <i class="fas fa-chevron-down"></i>
-        <i class="fas fa-chevron-left expand-rtl direction-ltr"></i>
-        <i class="fas fa-chevron-right expand-ltr direction-ltr"></i>
-        Expand me...
-    </a>
-    <div class="expand-content" style="display: block;">
-No need to press you!
-    </div>
+        <i class="fas fa-chevron-right"></i>
+        Expand me&hellip;
+    </label>
+    <div id="R-expandcontent-f8d47ec5b44a5ade79d26748e5ca3495" class="expand-content">
+<p>
+No need to press you!</div>
 </div>
 <h3 id="arbitrary-text">Arbitrary Text</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Show me almost endless possibilities&#34;</span> <span class="o">%</span><span class="p">}}</span>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="nx">expand</span> <span class="nx">title</span><span class="p">=</span><span class="s">&#34;Show me almost **endless** possibilities&#34;</span> <span class="o">%</span><span class="p">}}</span>
 </span></span><span class="line"><span class="cl"><span class="nx">You</span> <span class="nx">can</span> <span class="nx">add</span> <span class="nx">standard</span> <span class="nx">markdown</span> <span class="nx">syntax</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">-</span> <span class="nx">multiple</span> <span class="nx">paragraphs</span>
@@ -201,44 +258,46 @@ No need to press you!
 </span></span></span><span class="line"><span class="cl"><span class="s">```</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="p">&gt;</span> <span class="nx">the</span> <span class="nx">possibilities</span> <span class="nx">are</span> <span class="nf">endless</span> <span class="p">(</span><span class="nx">almost</span> <span class="o">-</span> <span class="nx">including</span> <span class="nx">other</span> <span class="nx">shortcodes</span> <span class="nx">may</span> <span class="nx">or</span> <span class="nx">may</span> <span class="nx">not</span> <span class="nx">work</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span>
-</span></span></code></pre></div>
+</span></span><span class="line"><span class="cl"><span class="p">{{</span><span class="o">%</span> <span class="o">/</span><span class="nx">expand</span> <span class="o">%</span><span class="p">}}</span></span></span></code></pre></div>
 <div class="expand">
-    <a class="expand-label" onclick="$t=$(this); if($t.parent('.expand-expanded.expand-marked').length){ $t.next().css('display','none') }else if($t.parent('.expand-marked').length){ $t.next().css('display','block') }else{ $t.next('.expand-content').slideToggle(100); } $t.parent().toggleClass('expand-expanded');">
+    <input type="checkbox" id="R-expand-60be061316827b0b68710213760cae27" aria-controls="R-expandcontent-60be061316827b0b68710213760cae27" >
+    <label class="expand-label" for="R-expand-60be061316827b0b68710213760cae27" >
         <i class="fas fa-chevron-down"></i>
-        <i class="fas fa-chevron-left expand-rtl direction-ltr"></i>
-        <i class="fas fa-chevron-right expand-ltr direction-ltr"></i>
-        Show me almost endless possibilities
-    </a>
-    <div class="expand-content" style="display: none;">
+        <i class="fas fa-chevron-right"></i>
+        Show me almost <strong>endless</strong> possibilities
+    </label>
+    <div id="R-expandcontent-60be061316827b0b68710213760cae27" class="expand-content">
+
 <p>You can add standard markdown syntax:</p>
 <ul>
 <li>multiple paragraphs</li>
 <li>bullet point lists</li>
 <li><em>emphasized</em>, <strong>bold</strong> and even <strong><em>bold emphasized</em></strong> text</li>
-<li>
+<li>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+
 <a href="https://example.com" target="_blank">
    links
-</a></li>
+</a>
+=======<a href="https://example.com" target="_blank">links</a>
+>>>>>>> upstream/main
+</li>
 <li>etc.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">...and even source code
-</span></span></code></pre></div><blockquote>
+<div class="wrap-code highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">...and even source code</span></span></code></pre></div><blockquote>
 <p>the possibilities are endless (almost - including other shortcodes may or may not work)</p>
 </blockquote>
-
-    </div>
+</div>
 </div>
 
             <footer class="footline">
             </footer>
           </article>
+
         </div>
       </main>
     </div>
-    <script src="../../js/clipboard.min.js?1679497866" defer></script>
-    <script src="../../js/perfect-scrollbar.min.js?1679497866" defer></script>
-    <script src="../../js/featherlight.min.js?1679497866" defer></script>
-    <script src="../../js/theme.js?1679497866" defer></script>
+    <script src="../../js/clipboard.min.js?1701790834" defer></script>
+    <script src="../../js/perfect-scrollbar.min.js?1701790834" defer></script>
+    <script src="../../js/theme.js?1701790834" defer></script>
   </body>
 </html>

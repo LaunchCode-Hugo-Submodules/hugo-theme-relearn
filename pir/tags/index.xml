@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Cap&#39;n Hugo Relearrrn Theme</title>
+    <title>Tag-a-taggs on Cap&#39;n Hugo Relearrrn Theme</title>
     <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/index.html</link>
-    <description>Recent content in Tags on Cap&#39;n Hugo Relearrrn Theme</description>
+    <description>Recent content in Tag-a-taggs on Cap&#39;n Hugo Relearrrn Theme</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>art-pir</language>
+    <atom:link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>children</title>
+      <title>Children</title>
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/children/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/children/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>config</title>
+      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/config/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/config/index.html</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Content</title>
+      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/content/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/content/index.html</guid>
       <description></description>
     </item>
     <item>
@@ -21,11 +36,20 @@
       <description></description>
     </item>
     <item>
-      <title>hidden</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/hidden/index.html</link>
+      <title>headless</title>
+      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/headless/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/hidden/index.html</guid>
+      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/headless/index.html</guid>
       <description></description>
+    </item>
+    <item>
+      <title>hush, matey</title>
+      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/its-hidden/index.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/tags/its-hidden/index.html</guid>
+      <description>This lists all planks that be hidden from th&#39; home plank. This includes planks that define hidden=true &#39;n their frontmatter as well as descendents o&#39; hidden planks.
+When giv&#39;n term planks, ye should give it a title. Otherwise it will print out a warning an&#39; will use th&#39; urlized title, which may looks weird.
+While internally this term be called hidden, it be referenced &#39;n th&#39; result&#39;n english planks as a secret an&#39; as hush, matey &#39;n th&#39; piratish translat&#39;n.</description>
     </item>
     <item>
       <title>non-hidden</title>

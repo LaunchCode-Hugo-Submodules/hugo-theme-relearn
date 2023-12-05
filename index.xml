@@ -5,7 +5,8 @@
     <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/index.html</link>
     <description>Recent content on Hugo Relearn Theme</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basics</title>
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/index.html</link>
@@ -27,7 +28,7 @@
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/index.html</guid>
       <description>Hugo uses Markdown for its simple content format. However, there are a lot of things that Markdown doesn’t support well. You could use pure HTML to expand possibilities.
 But this happens to be a bad idea. Everyone uses Markdown because it&amp;rsquo;s pure and simple to read even non-rendered. You should avoid HTML to keep it as simple as possible.
-To avoid this limitations, Hugo created shortcodes . A shortcode is a simple snippet inside a page.</description>
+To avoid this limitations, Hugo created &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD shortcodes =======shortcodes &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .</description>
     </item>
   </channel>
 </rss>
