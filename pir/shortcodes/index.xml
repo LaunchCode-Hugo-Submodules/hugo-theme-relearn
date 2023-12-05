@@ -66,7 +66,7 @@ Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter y
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/highlight/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrrates, grog made us dizzy! Be awarrre some stuff may look weird in this trrranslat&#39;n. Like Merrrmaids, do&#39;n math or chemistrrry and stuff.
 Th&#39; highlight shortcode renders yer code wit&#39; a rules highlighter.
-&amp;#8203; python 1print(&amp;#34;Hello World!&amp;#34;) Usage This shortcode be fully compat&#39;ble wit&#39; Hugo&amp;rsquo;s &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;highlight&amp;lt;/code&amp;gt; shortcode =======highlight shortcode &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main but offers some extensions.
+&amp;#8203; python 1print(&amp;#34;Hello World!&amp;#34;) Usage This shortcode be fully compat&#39;ble wit&#39; Hugo&amp;rsquo;s highlight shortcode but offers some extensions.
 It be called interchangeably &#39;n th&#39; same way as Hugo&amp;rsquo;s own shortcode provid&#39;n positional parameter or by simply us&#39;n codefences.</description>
     </item>
     <item>
@@ -74,9 +74,9 @@ It be called interchangeably &#39;n th&#39; same way as Hugo&amp;rsquo;s own sho
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/icon/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/icon/index.html</guid>
-      <description>Th&#39; ay&#39;con shortcode displays ay&#39;cons us&#39;n th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Font Awesome =======Font Awesome &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library.
+      <description>Th&#39; ay&#39;con shortcode displays ay&#39;cons us&#39;n th&#39; Font Awesome library.
 Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; positional parameter ye be free t&#39; also call this shortcode from yer own partials.
-&amp;#8203; shortcode shortcode (positional) partial {{% ay&#39;con ay&#39;con=&amp;#34;exclamation-triangle&amp;#34; %}} {{% ay&#39;con ay&#39;con=&amp;#34;angle-double-up&amp;#34; %}} {{% ay&#39;con ay&#39;con=&amp;#34;skull-crossbones&amp;#34; %}} {{% ay&#39;con exclamat&#39;n-triangle %}} {{% ay&#39;con angle-do&#39;ble-up %}} {{% ay&#39;con skull-crossbones %}} {{ partial &amp;#34;shortcodes/icon.</description>
+&amp;#8203; shortcode shortcode (positional) partial {{% ay&#39;con ay&#39;con=&amp;#34;exclamation-triangle&amp;#34; %}} {{% ay&#39;con ay&#39;con=&amp;#34;angle-double-up&amp;#34; %}} {{% ay&#39;con ay&#39;con=&amp;#34;skull-crossbones&amp;#34; %}} {{% ay&#39;con exclamat&#39;n-triangle %}} {{% ay&#39;con angle-do&#39;ble-up %}} {{% ay&#39;con skull-crossbones %}} {{ partial &amp;#34;shortcodes/icon.html&amp;#34; (dict &amp;#34;page&amp;#34; . &amp;#34;icon&amp;#34; &amp;#34;exclamation-triangle&amp;#34; )}} {{ partial &amp;#34;shortcodes/icon.</description>
     </item>
     <item>
       <title>Include</title>
@@ -93,7 +93,7 @@ Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter y
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/math/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrrates, grog made us dizzy! Be awarrre some stuff may look weird in this trrranslat&#39;n. Like Merrrmaids, do&#39;n math or chemistrrry and stuff.
-Th&#39; math shortcode generates beautiful formatted math an&#39; chemical formulae us&#39;n th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD MathJax =======MathJax &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library.
+Th&#39; math shortcode generates beautiful formatted math an&#39; chemical formulae us&#39;n th&#39; MathJax library.
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$ Avast This only works &#39;n modern browsers.
 Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter it be recommended t&#39; use codefences instead.</description>
     </item>
@@ -103,7 +103,7 @@ Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/mermaid/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrrates, grog made us dizzy! Be awarrre some stuff may look weird in this trrranslat&#39;n. Like Merrrmaids, do&#39;n math or chemistrrry and stuff.
-Th&#39; mermaid shortcode generates diagrams an&#39; flowcharts from text, &#39;n a similar manner as Marrrkdown us&#39;n th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Merrrmaid =======Merrrmaid &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library.
+Th&#39; mermaid shortcode generates diagrams an&#39; flowcharts from text, &#39;n a similar manner as Marrrkdown us&#39;n th&#39; Merrrmaid library.
 graph LR; If --&amp;gt; Then Then --&amp;gt; Else Avast This only works &#39;n modern browsers.
 Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter it be recommended t&#39; use codefences instead.</description>
     </item>
@@ -122,7 +122,7 @@ Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter y
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/openapi/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/openapi/index.html</guid>
-      <description>Th&#39; openapi shortcode uses th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Swagger UI =======Swagger UI &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library t&#39; display yer OpenAPI / Swagger specificat&#39;ns.
+      <description>Th&#39; openapi shortcode uses th&#39; Swagger UI library t&#39; display yer OpenAPI / Swagger specificat&#39;ns.
 Avast This only works &#39;n modern browsers.
 Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter ye be free t&#39; also call this shortcode from yer own partials.
 &amp;#8203; shortcode partial {{&amp;lt; openapi src=&amp;#34;https://petstore3.openapi.io/api/v3/openapi.json&amp;#34; &amp;gt;}} {{ partial &amp;#34;shortcodes/openapi.html&amp;#34; (dict &amp;#34;page&amp;#34; . &amp;#34;src&amp;#34; &amp;#34;https://petstore3.openapi.io/api/v3/openapi.json&amp;#34; )}} Parameter Name Default Notes src &amp;lt;empty&amp;gt; Th&#39; URL t&#39; th&#39; OpenAPI specificat&#39;n file.</description>
@@ -143,7 +143,7 @@ Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter y
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/tab/index.html</guid>
       <description>Ye can use a tab shortcode t&#39; display a single tab.
 This be especially useful if ye want t&#39; flag yer code example wit&#39; an explicit language.
-If ye want multiple tabs grouped together ye can wrap yer tabs into th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;tabs&amp;lt;/code&amp;gt; shortcode =======tabs shortcode &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .
+If ye want multiple tabs grouped together ye can wrap yer tabs into th&#39; tabs shortcode .
 &amp;#8203; c printf(&amp;#34;Hello World!&amp;#34;); Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter ye be free t&#39; also call this shortcode from yer own partials.</description>
     </item>
     <item>
@@ -153,7 +153,7 @@ If ye want multiple tabs grouped together ye can wrap yer tabs into th&#39; &amp
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/shortcodes/tabs/index.html</guid>
       <description>Th&#39; tabs shortcode displays arbitrary rrrambl&#39;n &#39;n an unlimited number o&#39; tabs.
 This comes &#39;n handy eg. fer provid&#39;n code snippets fer multiple languages.
-If ye just want a single tab ye can instead call th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;tab&amp;lt;/code&amp;gt; shortcode =======tab shortcode &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main standalone.
+If ye just want a single tab ye can instead call th&#39; tab shortcode standalone.
 hello. py sh c print(&amp;#34;Hello World!&amp;#34;) echo &amp;#34;Hello World!&amp;#34; printf(&amp;#34;Hello World!&amp;#34;); Usage While th&#39; examples be us&#39;n shorrrtcodes wit&#39; named parameter ye be free t&#39; also call this shortcode from yer own partials.</description>
     </item>
   </channel>

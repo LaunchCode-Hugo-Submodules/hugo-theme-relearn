@@ -66,18 +66,18 @@ Usage While the examples are using shortcodes with named parameter you are free 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/highlight/index.html</guid>
       <description>The highlight shortcode renders your code with a syntax highlighter.
-&amp;#8203; python 1print(&amp;#34;Hello World!&amp;#34;) Usage This shortcode is fully compatible with Hugo&amp;rsquo;s &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;highlight&amp;lt;/code&amp;gt; shortcode =======highlight shortcode &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main but offers some extensions.
+&amp;#8203; python 1print(&amp;#34;Hello World!&amp;#34;) Usage This shortcode is fully compatible with Hugo&amp;rsquo;s highlight shortcode but offers some extensions.
 It is called interchangeably in the same way as Hugo&amp;rsquo;s own shortcode providing positional parameter or by simply using codefences.
-You are free to also call this shortcode from your own partials. In this case it resembles Hugo&amp;rsquo;s &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;highlight&amp;lt;/code&amp;gt; function =======highlight function &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main syntax if you call this shortcode as a partial using compatiblity syntax.</description>
+You are free to also call this shortcode from your own partials. In this case it resembles Hugo&amp;rsquo;s highlight function syntax if you call this shortcode as a partial using compatiblity syntax.</description>
     </item>
     <item>
       <title>Icon</title>
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/icon/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/icon/index.html</guid>
-      <description>The icon shortcode displays icons using the &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Font Awesome =======Font Awesome &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library.
+      <description>The icon shortcode displays icons using the Font Awesome library.
 Usage While the examples are using shortcodes with positional parameter you are free to also call this shortcode from your own partials.
-&amp;#8203; shortcode shortcode (positional) partial {{% icon icon=&amp;#34;exclamation-triangle&amp;#34; %}} {{% icon icon=&amp;#34;angle-double-up&amp;#34; %}} {{% icon icon=&amp;#34;skull-crossbones&amp;#34; %}} {{% icon exclamation-triangle %}} {{% icon angle-double-up %}} {{% icon skull-crossbones %}} {{ partial &amp;#34;shortcodes/icon.html&amp;#34; (dict &amp;#34;page&amp;#34; .</description>
+&amp;#8203; shortcode shortcode (positional) partial {{% icon icon=&amp;#34;exclamation-triangle&amp;#34; %}} {{% icon icon=&amp;#34;angle-double-up&amp;#34; %}} {{% icon icon=&amp;#34;skull-crossbones&amp;#34; %}} {{% icon exclamation-triangle %}} {{% icon angle-double-up %}} {{% icon skull-crossbones %}} {{ partial &amp;#34;shortcodes/icon.html&amp;#34; (dict &amp;#34;page&amp;#34; . &amp;#34;icon&amp;#34; &amp;#34;exclamation-triangle&amp;#34; )}} {{ partial &amp;#34;shortcodes/icon.</description>
     </item>
     <item>
       <title>Include</title>
@@ -93,7 +93,7 @@ Usage While the examples are using shortcodes with named parameter you are free 
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/math/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/math/index.html</guid>
-      <description>The math shortcode generates beautiful formatted math and chemical formulae using the &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD MathJax =======MathJax &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library.
+      <description>The math shortcode generates beautiful formatted math and chemical formulae using the MathJax library.
 $$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$ Note This only works in modern browsers.
 Usage While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports Math codefences (eg. GitHub) and so your markdown becomes more portable.</description>
     </item>
@@ -102,7 +102,7 @@ Usage While the examples are using shortcodes with named parameter it is recomme
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/mermaid/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/mermaid/index.html</guid>
-      <description>The mermaid shortcode generates diagrams and flowcharts from text, in a similar manner as Markdown using the &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Mermaid =======Mermaid &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library.
+      <description>The mermaid shortcode generates diagrams and flowcharts from text, in a similar manner as Markdown using the Mermaid library.
 graph LR; If --&amp;gt; Then Then --&amp;gt; Else Note This only works in modern browsers.
 Usage While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports Mermaid codefences (eg. GitHub) and so your markdown becomes more portable.</description>
     </item>
@@ -121,7 +121,7 @@ Usage While the examples are using shortcodes with named parameter you are free 
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/openapi/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/openapi/index.html</guid>
-      <description>The openapi shortcode uses the &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Swagger UI =======Swagger UI &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main library to display your OpenAPI / Swagger specifications.
+      <description>The openapi shortcode uses the Swagger UI library to display your OpenAPI / Swagger specifications.
 Note This only works in modern browsers.
 Usage While the examples are using shortcodes with named parameter you are free to also call this shortcode from your own partials.
 &amp;#8203; shortcode partial {{&amp;lt; openapi src=&amp;#34;https://petstore3.openapi.io/api/v3/openapi.json&amp;#34; &amp;gt;}} {{ partial &amp;#34;shortcodes/openapi.html&amp;#34; (dict &amp;#34;page&amp;#34; . &amp;#34;src&amp;#34; &amp;#34;https://petstore3.openapi.io/api/v3/openapi.json&amp;#34; )}} Parameter Name Default Notes src &amp;lt;empty&amp;gt; The URL to the OpenAPI specification file.</description>
@@ -142,7 +142,7 @@ Usage While the examples are using shortcodes with named parameter you are free 
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/tab/index.html</guid>
       <description>You can use a tab shortcode to display a single tab.
 This is especially useful if you want to flag your code example with an explicit language.
-If you want multiple tabs grouped together you can wrap your tabs into the &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;tabs&amp;lt;/code&amp;gt; shortcode =======tabs shortcode &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .
+If you want multiple tabs grouped together you can wrap your tabs into the tabs shortcode .
 &amp;#8203; c printf(&amp;#34;Hello World!&amp;#34;); Usage While the examples are using shortcodes with named parameter you are free to also call this shortcode from your own partials.</description>
     </item>
     <item>
@@ -152,7 +152,7 @@ If you want multiple tabs grouped together you can wrap your tabs into the &amp;
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/shortcodes/tabs/index.html</guid>
       <description>The tabs shortcode displays arbitrary content in an unlimited number of tabs.
 This comes in handy eg. for providing code snippets for multiple languages.
-If you just want a single tab you can instead call the &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD &amp;lt;code&amp;gt;tab&amp;lt;/code&amp;gt; shortcode =======tab shortcode &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main standalone.
+If you just want a single tab you can instead call the tab shortcode standalone.
 hello. py sh c print(&amp;#34;Hello World!&amp;#34;) echo &amp;#34;Hello World!&amp;#34; printf(&amp;#34;Hello World!&amp;#34;); Usage While the examples are using shortcodes with named parameter you are free to also call this shortcode from your own partials.</description>
     </item>
   </channel>

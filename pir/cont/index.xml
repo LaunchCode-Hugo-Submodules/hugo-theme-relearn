@@ -13,15 +13,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/pages/index.html</guid>
       <description>In Cap&#39;n Hugo, planks be th&#39; core o&#39; yer ship. Once it be configured, planks be definitely th&#39; added value t&#39; yer documentat&#39;n ship.
-Folders Org&#39;nize yer ship like &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD any other Cap&#39;n Hugo project =======any other Cap&#39;n Hugo project &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main . Typically, ye will have a rrrambl&#39;n folder wit&#39; all yer planks.
-rrrambl&#39;n ├── level-one │ ├── level-two │ │ ├── level-three │ │ │ ├── level-four │ │ │ │ ├── _index.</description>
+Folders Org&#39;nize yer ship like any other Cap&#39;n Hugo project . Typically, ye will have a rrrambl&#39;n folder wit&#39; all yer planks.
+rrrambl&#39;n ├── level-one │ ├── level-two │ │ ├── level-three │ │ │ ├── level-four │ │ │ │ ├── _index.md &amp;lt;-- /level-one/level-two/level-three/level-four │ │ │ │ ├── page-4-a.</description>
     </item>
     <item>
       <title>Frrrontmatter</title>
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/frontmatter/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/frontmatter/index.html</guid>
-      <description>Each Cap&#39;n Hugo plank has t&#39; define a &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD frontmatter =======frontmatter &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main &#39;n toml, yaml or json. This ship will use toml fer documentat&#39;n &#39;n all cases.
+      <description>Each Cap&#39;n Hugo plank has t&#39; define a frontmatter &#39;n toml, yaml or json. This ship will use toml fer documentat&#39;n &#39;n all cases.
 +++ # If an opt&#39;n value be said t&#39; be not set, ye can achieve th&#39; same behavior # by given it an empty str&#39;n value. ############################################################################### # Cap&#39;n Hugo # These opt&#39;ns usually apply t&#39; other themes aswell. # Th&#39; social media image o&#39; yer plank.</description>
     </item>
     <item>
@@ -29,7 +29,7 @@ rrrambl&#39;n ├── level-one │ ├── level-two │ │ ├── leve
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/archetypes/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/archetypes/index.html</guid>
-      <description>Us&#39;n th&#39; command: hugo new [relative new rrrambl&#39;n path], ye can start a rrrambl&#39;n file wit&#39; th&#39; date an&#39; title automatically set. While this be a welcome feature, active writers need more: &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD archetypes =======archetypes &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main . These be preconfigured skeleton planks wit&#39; default frontmatter.
+      <description>Us&#39;n th&#39; command: hugo new [relative new rrrambl&#39;n path], ye can start a rrrambl&#39;n file wit&#39; th&#39; date an&#39; title automatically set. While this be a welcome feature, active writers need more: archetypes . These be preconfigured skeleton planks wit&#39; default frontmatter.
 Th&#39; Relearrrn theme defines some few archetypes o&#39; planks but ye be free t&#39; define new ones t&#39; yer lik&#39;n. All can be used at any level o&#39; th&#39; documentat&#39;n, th&#39; only difference be&#39;n th&#39; layout o&#39; th&#39; rrrambl&#39;n.</description>
     </item>
     <item>
@@ -47,10 +47,11 @@ Marrrkdown be simple t&#39; learn, wit&#39; minimal extra characters so it&amp;r
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/imageeffects/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/imageeffects/index.html</guid>
-      <description>Th&#39; theme supports non-standard &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD image effects =======image effects &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .
+      <description>Th&#39; theme supports non-standard image effects .
 As described, ye can add this t&#39; th&#39; URL query parameter, but this may be cumbersome t&#39; do it consistently fer th&#39; whole plank.
 Instead, ye can configure th&#39; defaults &#39;n yer hugo.toml aswell as overrid&#39;n these default &#39;n th&#39; planks frontmatter.
-Explicitly set URL query parameter will override th&#39; defaults &#39;n effect fer a plank.</description>
+Explicitly set URL query parameter will override th&#39; defaults &#39;n effect fer a plank.
+Without any sett&#39;ns &#39;n yer hugo.toml this defaults t&#39;</description>
     </item>
     <item>
       <title>Menu extrrra shorrrtcuts</title>
@@ -68,7 +69,7 @@ Example from th&#39; current website:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/cont/i18n/index.html</guid>
       <description>Th&#39; Relearrrn theme be fully compat&#39;ble wit&#39; Cap&#39;n Hugo multilingual mode.
-Avail&#39;ble languages: Arabic, Simplified Chinese, Traditional Chinese, Czech, Dutch, English, Finnish, French, German, Hindi, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Swahili, Turkish, Vietnamese. Feel free t&#39; contribute! Full support fer languages written right t&#39; left Automatic menu generat&#39;n from multilingual rrrambl&#39;n In-browser language switch&#39;n Basic configurat&#39;n Aft learn&#39;n &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD how Cap&#39;n Hugo handle multilingual websites =======how Cap&#39;n Hugo handle multilingual websites &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main , define yer languages &#39;n yer hugo.</description>
+Avail&#39;ble languages: Arabic, Simplified Chinese, Traditional Chinese, Czech, Dutch, English, Finnish, French, German, Hindi, Hungarian, Indonesian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Swahili, Turkish, Vietnamese. Feel free t&#39; contribute! Full support fer languages written right t&#39; left Automatic menu generat&#39;n from multilingual rrrambl&#39;n In-browser language switch&#39;n Basic configurat&#39;n Aft learn&#39;n how Cap&#39;n Hugo handle multilingual websites , define yer languages &#39;n yer hugo.</description>
     </item>
     <item>
       <title>Taxonomy</title>

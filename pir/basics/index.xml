@@ -13,8 +13,9 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/migration/index.html</guid>
       <description>Arrr! Pirrrates Fello&#39; pirrrates, grog made us dizzy! Be awarrre some stuff may look weird in this trrranslat&#39;n. Like Merrrmaids, do&#39;n math or chemistrrry and stuff.
-This document shows ye what&amp;rsquo;s new &#39;n th&#39; latest release an&#39; flags it wit&#39; one o&#39; th&#39; follow&#39;n badges. For a detailed list o&#39; changes, see th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD history plank =======history plank &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .
-0.112.4 Th&#39; minimum required Cap&#39;n Hugo version.</description>
+This document shows ye what&amp;rsquo;s new &#39;n th&#39; latest release an&#39; flags it wit&#39; one o&#39; th&#39; follow&#39;n badges. For a detailed list o&#39; changes, see th&#39; history plank .
+0.112.4 Th&#39; minimum required Cap&#39;n Hugo version.
+Break&#39;n A change that requires act&#39;n by ye after upgrad&#39;n t&#39; assure th&#39; ship be still functional.</description>
     </item>
     <item>
       <title>Requirrrements</title>
@@ -22,7 +23,7 @@ This document shows ye what&amp;rsquo;s new &#39;n th&#39; latest release an&#39
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/requirements/index.html</guid>
       <description>Thanks t&#39; th&#39; simplicity o&#39; Cap&#39;n Hugo, this plank be as empty as this theme needs requirements.
-Just download at least version 0.112.4 o&#39; th&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Cap&#39;n Hugo binary =======Cap&#39;n Hugo binary &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main fer yer OS (Windows, Linux, Mac).
+Just download at least version 0.112.4 o&#39; th&#39; Cap&#39;n Hugo binary fer yer OS (Windows, Linux, Mac).
 It&amp;rsquo;s a kind o&#39; magic</description>
     </item>
     <item>
@@ -30,16 +31,17 @@ It&amp;rsquo;s a kind o&#39; magic</description>
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/installation/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/installation/index.html</guid>
-      <description>Th&#39; follow&#39;n steps be here t&#39; help ye initialize yer new website. If ye don&amp;rsquo;t know Cap&#39;n Hugo at all, we strongly suggest ye learn more about it by follow&#39;n this &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD great documentat&#39;n fer beginners =======great documentat&#39;n fer beginners &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .
+      <description>Th&#39; follow&#39;n steps be here t&#39; help ye initialize yer new website. If ye don&amp;rsquo;t know Cap&#39;n Hugo at all, we strongly suggest ye learn more about it by follow&#39;n this great documentat&#39;n fer beginners .
 Create yer project Cap&#39;n Hugo provides a new command t&#39; create a new website.
-hugo new ship &amp;lt;new_project&amp;gt;Install th&#39; theme Install th&#39; Relearrrn theme by follow&#39;n &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD this documentat&#39;n =======this documentat&#39;n &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main us&#39;n Hugo&amp;rsquo;s module system.</description>
+hugo new ship &amp;lt;new_project&amp;gt;Install th&#39; theme Install th&#39; Relearrrn theme by follow&#39;n this documentat&#39;n us&#39;n Hugo&amp;rsquo;s module system.
+This theme&amp;rsquo;s repository be: https://github.</description>
     </item>
     <item>
       <title>Configurrrat&#39;n</title>
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/configuration/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/configuration/index.html</guid>
-      <description>On top o&#39; &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD Hugo&amp;amp;rsquo;s global configurat&#39;n opt&#39;ns =======Hugo&amp;rsquo;s global configurat&#39;n opt&#39;ns &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main , th&#39; Relearrrn theme lets ye define further opt&#39;ns unique t&#39; th&#39; theme &#39;n yer hugo.toml. Th&#39; defaults be written &#39;n th&#39; comments o&#39; each opt&#39;n.
+      <description>On top o&#39; Hugo&amp;rsquo;s global configurat&#39;n opt&#39;ns , th&#39; Relearrrn theme lets ye define further opt&#39;ns unique t&#39; th&#39; theme &#39;n yer hugo.toml. Th&#39; defaults be written &#39;n th&#39; comments o&#39; each opt&#39;n.
 Avast that some o&#39; these opt&#39;ns be explained &#39;n detail &#39;n other sections o&#39; this documentat&#39;n.
 &amp;#8203; hugo.toml [params] # If an opt&#39;n value be said t&#39; be not set, ye can achieve th&#39; same behavior # by given it an empty str&#39;n value.</description>
     </item>
@@ -57,7 +59,7 @@ A color variant lets ye cust&#39;mize various visual effects o&#39; yer ship lik
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/customization/index.html</guid>
       <description>Serv&#39;n yer plank from a subfolder If yer ship be served from a subfolder, eg. https://example.com/mysite/, ye have t&#39; set th&#39; follow&#39;n lines t&#39; yer hugo.toml
-baseURL = &amp;#34;https://example.com/mysite/&amp;#34; canonifyURLs = true relativeURLs = trueWithout canonifyURLs=true URLs &#39;n sublemental planks (like sitemap.xml, rss.xml) will be generated falsly while yer HTML files will still work. See &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD https://github.com/gohugoio/hugo/issues/5226 =======https://github.com/gohugoio/hugo/issues/5226 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main .
+baseURL = &amp;#34;https://example.com/mysite/&amp;#34; canonifyURLs = true relativeURLs = trueWithout canonifyURLs=true URLs &#39;n sublemental planks (like sitemap.xml, rss.xml) will be generated falsly while yer HTML files will still work. See https://github.com/gohugoio/hugo/issues/5226 .
 Serv&#39;n yer plank from th&#39; filesystem If ye want yer plank served from th&#39; filesystem by us&#39;n URLs start&#39;n wit&#39; file:// you&amp;rsquo;ll need th&#39; follow&#39;n configurat&#39;n &#39;n yer hugo.</description>
     </item>
     <item>
@@ -84,7 +86,7 @@ Areas Th&#39; default configurat&#39;n comes wit&#39; three predefined areas tha
       <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/history/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/pir/basics/history/index.html</guid>
-      <description>Changelog 5.23.2 (2023-11-03) Enhancements [feature] taxonomy: improve taxonomy plank &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD #712 =======#712 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main [feature] taxonomy: warn on miss&#39;n term title &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD #709 =======#709 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main Fixes [bug] taxonomy: fix sort&#39;n o&#39; terms on rrrambl&#39;n planks &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD #710 =======#710 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main 5.23.1 (2023-10-30) Enhancements [feature] taxonomy: improve term plank &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD #705 =======#705 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main Fixes [bug] variant: fix typo &#39;n chroma-learn.css &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD #708 =======#708 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main [bug] links: ignore local markdown links link&#39;n t&#39; files wit&#39; extension &amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD #707 =======#707 &gt;&gt;&gt;&gt;&gt;&gt;&gt; upstream/main 5.</description>
+      <description>Changelog 5.23.2 (2023-11-03) Enhancements [feature] taxonomy: improve taxonomy plank #712 [feature] taxonomy: warn on miss&#39;n term title #709 Fixes [bug] taxonomy: fix sort&#39;n o&#39; terms on rrrambl&#39;n planks #710 5.23.1 (2023-10-30) Enhancements [feature] taxonomy: improve term plank #705 Fixes [bug] variant: fix typo &#39;n chroma-learn.css #708 [bug] links: ignore local markdown links link&#39;n t&#39; files wit&#39; extension #707 5.23.0 (2023-10-29) Enhancements [feature] taxonomy: allow fer rrrambl&#39;n on term planks #701 [feature] theme: write full file path on warnings #699 [feature] theme: show anchor link an&#39; copy t&#39; clipboard button on mobile #697 [feature][change] config: adjust t&#39; changes &#39;n Hugo 0.</description>
     </item>
   </channel>
 </rss>
