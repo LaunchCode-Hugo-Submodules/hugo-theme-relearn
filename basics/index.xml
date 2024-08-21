@@ -1,92 +1,74 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Basics on Hugo Relearn Theme</title>
-    <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/index.html</link>
-    <description>Recent content in Basics on Hugo Relearn Theme</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <title>Basics :: Hugo Relearn Theme</title>
+    <link>https://mcshelby.github.io/hugo-theme-relearn/basics/index.html</link>
+    <description>Discover what this Hugo theme is all about and the core-concepts behind it.</description>
+    <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://mcshelby.github.io/hugo-theme-relearn/basics/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What&#39;s New</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/migration/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/migration/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/migration/index.html</guid>
-      <description>This document shows you what&amp;rsquo;s new in the latest release and flags it with one of the following badges. For a detailed list of changes, see the history page .
-0.112.4 The minimum required Hugo version.
-Breaking A change that requires action by you after upgrading to assure the site is still functional.
-Change A change in default behavior that may requires action by you if you want to revert it.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/migration/index.html</guid>
+      <description>This document shows you what’s new in the latest release and flags it with one of the following badges.</description>
     </item>
     <item>
       <title>Requirements</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/requirements/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/requirements/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/requirements/index.html</guid>
-      <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.
-Just download at least version 0.112.4 of the Hugo binary for your OS (Windows, Linux, Mac).
-It&amp;rsquo;s a kind of magic</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/requirements/index.html</guid>
+      <description>Thanks to the simplicity of Hugo, this page is as empty as this theme needs requirements.</description>
     </item>
     <item>
       <title>Installation</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/installation/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/installation/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/installation/index.html</guid>
-      <description>The following steps are here to help you initialize your new website. If you don&amp;rsquo;t know Hugo at all, we strongly suggest you learn more about it by following this great documentation for beginners .
-Create your project Hugo provides a new command to create a new website.
-hugo new site &amp;lt;new_project&amp;gt;Install the theme Install the Relearn theme by following this documentation using Hugo&amp;rsquo;s module system.
-This theme&amp;rsquo;s repository is: https://github.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/installation/index.html</guid>
+      <description>The following steps are here to help you initialize your new website.</description>
     </item>
     <item>
       <title>Configuration</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/configuration/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/configuration/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/configuration/index.html</guid>
-      <description>On top of Hugo&amp;rsquo;s global configuration options , the Relearn theme lets you define further options unique to the theme in your hugo.toml. The defaults are written in the comments of each option.
-Note that some of these options are explained in detail in other sections of this documentation.
-&amp;#8203; hugo.toml [params] # If an option value is said to be not set, you can achieve the same behavior # by given it an empty string value.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/configuration/index.html</guid>
+      <description>On top of Hugo’s global configuration options , the Relearn theme lets you define further options unique to the theme in your hugo.</description>
     </item>
     <item>
       <title>Branding</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/branding/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/branding/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/branding/index.html</guid>
-      <description>The Relearn theme provides configuration options to change your your site&amp;rsquo;s colors, favicon and logo. This allows you to easily align your site visuals to your desired style. Most of these options are exposed thru so called color variants.
-A color variant lets you customize various visual effects of your site like almost any color, used fonts, color schemes of print, syntax highligtning, Mermaid and the OpenAPI shortcode, etc. It contains of a CSS file and optional configuration options in your hugo.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/branding/index.html</guid>
+      <description>The Relearn theme provides configuration options to change your site’s colors, favicon and logo.</description>
     </item>
     <item>
       <title>Customization</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/customization/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/customization/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/customization/index.html</guid>
-      <description>Serving your page from a subfolder If your site is served from a subfolder, eg. https://example.com/mysite/, you have to set the following lines to your hugo.toml
-baseURL = &amp;#34;https://example.com/mysite/&amp;#34; canonifyURLs = true relativeURLs = trueWithout canonifyURLs=true URLs in sublemental pages (like sitemap.xml, rss.xml) will be generated falsly while your HTML files will still work. See https://github.com/gohugoio/hugo/issues/5226 .
-Serving your page from the filesystem If you want your page served from the filesystem by using URLs starting with file:// you&amp;rsquo;ll need the following configuration in your hugo.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/customization/index.html</guid>
+      <description>Usage scenarios The theme is usable in different scenarios, requiring the following mandatory settings in your hugo.</description>
     </item>
     <item>
       <title>Stylesheet generator</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/generator/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/generator/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/generator/index.html</guid>
-      <description>This interactive tool may help you to generate your own color variant stylesheet.
-Show usage instructions To get started, first select a color variant from the variant selector in the lower left sidebar that fits you best as a starting point.
-The graph is interactive and reflect the current colors. You can click on any of the colored boxes to adjust the respective color. The graph and the page will update accordingly.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/generator/index.html</guid>
+      <description>This interactive tool may help you to generate your own color variant stylesheet.</description>
     </item>
     <item>
       <title>Topbar Modification</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/topbar/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/topbar/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/topbar/index.html</guid>
-      <description>The theme comes with a reasonably configured topbar.
-Nevertheless, your requirements may differ from this configuration. Luckily the theme got you covered as the themebar, its buttons and the functionality behind these buttons is fully configurable by you.
-Tip All mentioned file names below can be clicked and show you the implementation for a better understanding.
-Areas The default configuration comes with three predefined areas that may contain an arbitrary set of buttons.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/topbar/index.html</guid>
+      <description>The theme comes with a reasonably configured topbar.&#xA;Nevertheless, your requirements may differ from this configuration.</description>
     </item>
     <item>
       <title>History</title>
-      <link>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/history/index.html</link>
+      <link>https://mcshelby.github.io/hugo-theme-relearn/basics/history/index.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://LaunchCode-Hugo-Submodules.github.io/hugo-theme-relearn/basics/history/index.html</guid>
-      <description>Changelog 5.23.2 (2023-11-03) Enhancements [feature] taxonomy: improve taxonomy page #712 [feature] taxonomy: warn on missing term title #709 Fixes [bug] taxonomy: fix sorting of terms on content pages #710 5.23.1 (2023-10-30) Enhancements [feature] taxonomy: improve term page #705 Fixes [bug] variant: fix typo in chroma-learn.css #708 [bug] links: ignore local markdown links linking to files with extension #707 5.23.0 (2023-10-29) Enhancements [feature] taxonomy: allow for content on term pages #701 [feature] theme: write full file path on warnings #699 [feature] theme: show anchor link and copy to clipboard button on mobile #697 [feature][change] config: adjust to changes in Hugo 0.</description>
+      <guid>https://mcshelby.github.io/hugo-theme-relearn/basics/history/index.html</guid>
+      <description>Changelog 6.1.1 (2024-08-02) Fixes [bug] link: link resolving stopped working in certain configurations #882 6.</description>
     </item>
   </channel>
 </rss>
