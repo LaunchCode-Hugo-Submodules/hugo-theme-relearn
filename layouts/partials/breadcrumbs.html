@@ -7,7 +7,7 @@
   {{- $to = $page }}
   {{- $lasturl = partial "relLangPrettyUglyURL.hugo" (dict "to" $page) }}
 {{- end }}
-{{- $depth := add 1 (int (partial "get-page-depth.hugo" (dict "page" $page))) }}
+{{- $depth := add 1 (int (partial "pageHelper/depth.hugo" (dict "page" $page))) }}
 {{- if .page.Site.Params.disableRootBreadcrumb }}
   {{- $depth = add $depth -1 }}
 {{- end }}
@@ -31,17 +31,7 @@
 {{- range $i, $e := $breadcrumbReversed }}
   {{- $to := $e }}
   {{- $depth = add $depth 1 }}
-  {{- $title := $to.Title }}
-  {{- if eq $to.Kind "taxonomy" }}
-    {{- $title = default (default $to.Data.Plural (i18n $to.Data.Plural)) .Title }}
-  {{- else if eq $to.Kind "term" }}
-    {{- $taxonomy_page := $to.Site.GetPage $to.Data.Plural }}
-    {{- $title = default (default $to.Data.Singular (i18n $to.Data.Singular)) $taxonomy_page.Params.SingularTitle }}
-    {{- $title = printf "%s %s %s" $title (default "::" $to.Site.Params.titleSeparator) (default (humanize $to.Data.Term | strings.Title) $to.Title) }}
-  {{- end }}
-  {{- if not $title }}
-    {{- $title = $to.Site.Title }}
-  {{- end }}
+  {{- $title := partial "pageHelper/title.hugo" (dict "page" $to "linkTitle" true) }}
   {{- $url := partial "relLangPrettyUglyURL.hugo" (dict "to" $to) }}
   {{- $isPage := eq $url $pageurl }}
   {{- $isLast := eq $url $lasturl }}

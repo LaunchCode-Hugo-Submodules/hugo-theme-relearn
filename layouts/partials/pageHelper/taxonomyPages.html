@@ -2,13 +2,13 @@
 {{- range .Data.Terms }}
   {{- $count := 0 }}
   {{- range .Pages }}
-    {{- $c:=""}}{{/* count pages of term */}}
+    {{- /* count pages of term */}}
     {{- if and .Title .RelPermalink (or (ne (.Scratch.Get "relearnIsHiddenStem") true) (ne .Site.Params.disableTagHiddenPages true) ) }}
       {{- $count = add $count 1 }}
     {{- end }}
   {{- end }}
   {{- if $count }}
-    {{- $pages = $pages| append (dict "Title" (default (humanize .Page.Data.Term | strings.Title) .Page.Title) "Page" .Page "Count" $count )}}
+    {{- $pages = $pages| append (dict "Title" (partial "pageHelper/title.hugo" (dict "page" .Page "linkTitle" true)) "Page" .Page "Count" $count )}}
   {{- end }}
 {{- end }}
 {{- $pages = sort $pages ".Title" }}

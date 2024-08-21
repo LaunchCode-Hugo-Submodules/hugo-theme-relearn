@@ -12,19 +12,19 @@ features = ["badges", "breadcrumbs", "boxes", "buttons",
   "favicon", "file inclusion", "file system support", "font awesome", "front matter cms",
   "gfm",
   "hidden pages",
-  "i18n", "icons", "ie11", "image resizing", "include", "internet explorer",
+  "i18n", "icons", "image resizing", "include",
   "light", "lightbox", "logo",
   "math", "mathjax", "menu", "mermaid", "multilingual", "mobile",
   "nested sections", "notice",
   "oas", "offline usable", "openapi", "open graph",
   "print", "printable",
   "responsive", "rss", "rtl",
-  "search", "search page", "sidebar", "sitemap", "subtheme", "swagger", "swaggerui", "syntax highlighting",
+  "schema", "search", "search page", "sidebar", "sitemap", "subtheme", "swagger", "swaggerui", "syntax highlighting",
   "table of contents", "tab", "tabs", "tags", "taxonomy", "themeable", "themes", "toc", "topbar buttons", "twitter cards"]
 
 [module]
   [module.hugoVersion]
-    min = "0.112.4"
+    min = "0.121.0"
 
 [author]
   name = "Sören Weber"

@@ -11,18 +11,14 @@ graph LR;
     Then --> Else
 {{< /mermaid >}}
 
-{{% notice note %}}
-This only works in modern browsers.
-{{% /notice %}}
-
 ## Usage
 
-While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports Mermaid codefences (eg. GitHub) and so your markdown becomes more portable.
+While the examples are using shortcodes with named parameter it is recommended to use Markdown codefences instead. This is because more and more other software supports Mermaid Markdown codefences (eg. GitHub) and so your markdown becomes more portable.
 
 You are free to also call this shortcode from your own partials.
 
 {{< tabs groupid="shortcode-parameter">}}
-{{% tab title="codefence" %}}
+{{% tab title="markdown" %}}
 
 ````md
 ```mermaid { align="center" zoom="true" }
@@ -59,7 +55,7 @@ graph LR;
 {{% /tab %}}
 {{< /tabs >}}
 
-The generated graphs can be be panned by dragging them and zoomed by using the mousewheel. On mobile devices you can use finger gestures.
+The generated graphs can be panned by dragging them and zoomed by using the mousewheel. On mobile devices you can use finger gestures.
 
 ### Parameter
 
@@ -71,7 +67,7 @@ The generated graphs can be be panned by dragging them and zoomed by using the m
 
 ## Configuration
 
-Mermaid is configured with default settings. You can customize Mermaid's default settings for all of your files thru a JSON object in your `hugo.toml`, override these settings per page thru your pages frontmatter or override these setting per diagramm thru [diagram directives](https://mermaid-js.github.io/mermaid/#/directives?id=directives).
+Mermaid is configured with default settings. You can customize Mermaid's default settings for all of your files through a JSON object in your `hugo.toml`, override these settings per page through your pages frontmatter or override these setting per diagramm through [diagram directives](https://mermaid-js.github.io/mermaid/#/directives?id=directives).
 
 The JSON object of your `hugo.toml` / frontmatter is forwarded into Mermaid's `mermaid.initialize()` function.
 
@@ -81,20 +77,18 @@ The `theme` setting can also be set by your used color variant. This will be the
 
 ### Global Configuration File
 
-````toml
+{{< multiconfig file=hugo >}}
 [params]
   mermaidInitialize = "{ \"theme\": \"dark\" }"
   mermaidZoom = true
-````
+{{< /multiconfig >}}
 
 ### Page's Frontmatter
 
-````toml
-+++
+{{< multiconfig fm=true >}}
 mermaidInitialize = "{ \"theme\": \"dark\" }"
 mermaidZoom = true
-+++
-````
+{{< /multiconfig >}}
 
 ## Examples
 
@@ -154,7 +148,7 @@ sequenceDiagram
     Bob-->>John: Jolly good!
 {{< /mermaid >}}
 
-### Class Diagram with Codefence Syntax
+### Class Diagram with Markdown Codefence Syntax
 
 ````go
 ```mermaid
@@ -640,7 +634,7 @@ Electricity grid,Heating and cooling - homes,113.726
 Electricity grid,H2 conversion,27.14
 {{< /mermaid >}}
 
-## XYChart
+### XYChart
 
 ````go
 {{</* mermaid */>}}
@@ -660,4 +654,42 @@ xychart-beta
     y-axis "Revenue (in $)" 4000 --> 11000
     bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
     line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+{{< /mermaid >}}
+
+### Block Diagram
+
+````go
+{{</* mermaid */>}}
+block-beta
+columns 1
+  db(("DB"))
+  blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+  block:ID
+    A
+    B["A wide one in the middle"]
+    C
+  end
+  space
+  D
+  ID --> D
+  C --> D
+  style B fill:#969,stroke:#333,stroke-width:4px
+{{</* /mermaid */>}}
+````
+
+{{< mermaid >}}
+block-beta
+columns 1
+  db(("DB"))
+  blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+  block:ID
+    A
+    B["A wide one in the middle"]
+    C
+  end
+  space
+  D
+  ID --> D
+  C --> D
+  style B fill:#969,stroke:#333,stroke-width:4px
 {{< /mermaid >}}

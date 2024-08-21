@@ -7,7 +7,7 @@ The `siteparam` shortcode prints values of site params.
 
 ## Usage
 
-While the examples are using shortcodes with named parameter you are free to use positional aswell or call this shortcode from your own partials.
+While the examples are using shortcodes with named parameter you are free to use positional as well or call this shortcode from your own partials.
 
 {{< tabs groupid="shortcode-parameter">}}
 {{% tab title="shortcode" %}}
@@ -56,18 +56,18 @@ While the examples are using shortcodes with named parameter you are free to use
 
 To use formatted parameter, add this in your `hugo.toml`:
 
-````toml
+{{< multiconfig file=hugo >}}
 [markup.goldmark.renderer]
-    unsafe = true
-````
+  unsafe = true
+{{< /multiconfig >}}
 
-{{% tab title="hugo.toml" %}}
-````toml
+Now values containing Markdown will be formatted correctly.
+
+{{< multiconfig file=hugo >}}
 [params]
-    [params.siteparam.test]
-        text = "A **nested** parameter <b>with</b> formatting"
-````
-{{% /tab %}}
+  [params.siteparam.test]
+    text = "A **nested** parameter <b>with</b> formatting"
+{{< /multiconfig >}}
 
 ```go
 Formatted parameter: {{%/* siteparam name="siteparam.test.text" */%}}

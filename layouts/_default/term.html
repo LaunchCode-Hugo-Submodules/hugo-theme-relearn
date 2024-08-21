@@ -5,9 +5,7 @@
             </header>
 {{- $page := . }}
 
-{{- $taxonomy_page := .Site.GetPage .Data.Plural }}
-{{- $title := default (default .Data.Singular (i18n .Data.Singular)) $taxonomy_page.Params.SingularTitle }}
-{{- $title = printf "%s %s %s" $title (default "::" .Site.Params.titleSeparator) (default (humanize .Data.Term | strings.Title) .Title) }}
+{{- $title := partial "pageHelper/title.hugo" (dict "page" .) }}
 <h1 id="{{ $title | plainify | anchorize }}">{{ $title }}</h1>
 {{- .Content }}
 {{- $lastCapital := "" }}
@@ -21,10 +19,10 @@
 <h2 id="{{ $capital | plainify | anchorize }}">{{ $capital }}</h2>
 <ul class="columnize">
   {{- end }}
-  {{- $c:=""}}{{/* display pages of a term */}}
+  {{- /* display pages of a term */}}
   {{- $breadcrumb := "" }}
   {{- if (ne .Page.Site.Params.disableTermBreadcrumbs true) }}
-    {{- $breadcrumb = (trim ((partial "breadcrumbs.html" (dict "page" .Page "dirOnly" true)) | plainify | htmlUnescape) "\n\r\t ") }}
+    {{- $breadcrumb = partial "breadcrumbs.html" (dict "page" .Page "dirOnly" true) | plainify | htmlUnescape | chomp }}
   {{- end }}
   <li><a href="{{ partial "relLangPrettyUglyURL.hugo" (dict "to" .Page) }}">{{ .Title }}</a>{{ with $breadcrumb }}<div class="breadcrumbs highlightable" title="{{ . }}">{{ . }}</div>{{ end }}</li>
   {{- $lastCapital = $capital }}

@@ -13,14 +13,14 @@ print("Hello World!")
 
 This shortcode is fully compatible with Hugo's [`highlight` shortcode](https://gohugo.io/content-management/syntax-highlighting/#highlight-shortcode) but **offers some extensions**.
 
-It is called interchangeably in the same way as Hugo's own shortcode providing positional parameter or by simply using codefences.
+It is called interchangeably in the same way as Hugo's own shortcode providing positional parameter or by simply using Markdown codefences.
 
-You are free to also call this shortcode from your own partials. In this case it resembles Hugo's [`highlight` function](https://gohugo.io/functions/highlight/) syntax if you call this shortcode as a partial using compatiblity syntax.
+You are free to also call this shortcode from your own partials. In this case it resembles Hugo's [`highlight` function](https://gohugo.io/functions/highlight/) syntax if you call this shortcode as a partial using compatibility syntax.
 
-While the examples are using shortcodes with named parameter it is recommended to use codefences instead. This is because more and more other software supports codefences (eg. GitHub) and so your markdown becomes more portable.
+While the examples are using shortcodes with named parameter it is recommended to use Markdown codefences instead. This is because more and more other software supports Markdown codefences (eg. GitHub) and so your Markdown becomes more portable.
 
 {{< tabs groupid="shortcode-parameter">}}
-{{% tab title="codefence" %}}
+{{% tab title="markdown" %}}
 
 ````md
 ```py { lineNos="true" wrap="true" title="python" }
@@ -80,7 +80,7 @@ print("Hello World!")
 | Name                  | Position | Default          | Notes       |
 |-----------------------|--------- | -----------------|-------------|
 | **type**              | 1        | _&lt;empty&gt;_  | The language of the code to highlight. Choose from one of the [supported languages](https://gohugo.io/content-management/syntax-highlighting/#list-of-chroma-highlighting-languages). Case-insensitive. |
-| **title**             |          | _&lt;empty&gt;_  | **Extension**. Arbitrary title for code. This displays the code like a [single tab](shortcodes/tab) if `hl_inline=false` (which is Hugos default). |
+| **title**             |          | _&lt;empty&gt;_  | **Extension**. Arbitrary title for code. This displays the code like a [single tab](shortcodes/tab) if `hl_inline=false` (which is Hugo's default). |
 | **wrap**              |          | see notes        | **Extension**. When `true` the content may wrap on long lines otherwise it will be scrollable.<br><br>The default value can be set in your `hugo.toml` and overwritten via frontmatter. [See below](#configuration). |
 | **options**           | 2        | _&lt;empty&gt;_  | An optional, comma-separated list of zero or more [Hugo supported options](https://gohugo.io/functions/highlight/#options) as well as extension parameter from this table. |
 | _**&lt;option&gt;**_  |          | _&lt;empty&gt;_  | Any of [Hugo's supported options](https://gohugo.io/functions/highlight/#options). |
@@ -94,44 +94,29 @@ Default values for extension options can be set via params settings in your `hug
 
 ### Global Configuration File
 
-You can configure the color style used for code blocks in your [color variants stylesheet](basics/branding#syntax-highlightning) file.
+You can configure the color style used for code blocks in your [color variants stylesheet](basics/branding#syntax-highlighting) file.
 
 #### Recommended Settings
 
-````toml
+{{< multiconfig file=hugo >}}
 [markup]
   [markup.highlight]
-    # line numbers in a table layout will shift if code is wrapping, so better
-    # use inline; besides that visually both layouts have the same look and behavior
     lineNumbersInTable = false
-
-    # the shipped variants come with their own modified chroma syntax highlightning
-    # stylesheets which are linked in your generated HTML pages; you can use Hugo to generate
-    # own stylesheets to your liking and use them in your variant;
-    # if you want to use Hugo's internal styles instead of the shipped stylesheets:
-    # - remove `noClasses` or set `noClasses = true`
-    # - set `style` to a predefined style name
-    # note: with using the internal styles, the `--CODE-theme` setting in your variant
-    # stylesheet will be ignored and the internal style is used for all variants and
-    # even print
     noClasses = false
-    # style = "tango"
-````
+{{< /multiconfig >}}
 
 #### Optional Settings
 
-````toml
+{{< multiconfig file=hugo >}}
 [params]
   highlightWrap = true
-````
+{{< /multiconfig >}}
 
 ### Page's Frontmatter
 
-````toml
-+++
+{{< multiconfig fm=true >}}
 highlightWrap = true
-+++
-````
+{{< /multiconfig >}}
 
 ## Examples
 
@@ -157,10 +142,10 @@ print("World")
 print("!")
 {{< /highlight >}}
 
-### Codefence with Title
+### Markdown Codefence with Title
 
 
-````markdown
+````md
 ```py { title="python" }
 # a bit shorter
 print("Hello World!")

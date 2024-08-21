@@ -6,7 +6,7 @@ weight = 2
 
 This document shows you what's new in the latest release and flags it with one of the following badges. For a detailed list of changes, see the [history page](basics/history).
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.112.4{{% /badge %}} The minimum required Hugo version.
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.121.0{{% /badge %}} The minimum required Hugo version.
 
 - {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} A change that requires action by you after upgrading to assure the site is still functional.
 
@@ -18,17 +18,154 @@ This document shows you what's new in the latest release and flags it with one o
 
 ---
 
-## 5.24.0.beta {#5240}
+## 6.2.0.beta (XXXX-XX-XX) {#620}
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.112.4{{% /badge %}} This release requires a newer Hugo version.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} If you are running Hugo {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.132.0{{% /badge %}} or later, the theme is now capable to print [GitHub styled alerts](cont/markdown#alerts).
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} To support new severity levels for GitHub styled alerts, all shortcodes that support severity levels with their `style` parameter were expanded with the new severities `caution` and `important` and the `color` parameter was expanded with `cyan` and `magenta`. Please note, that coloring and icons of severities may defer from the [display you see on GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts).
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} To support new severity levels for GitHub styled alerts, the new severities and their according colors are also available as CSS variables `BOX-MAGENTA-color`, `BOX-MAGENTA-TEXT-color`, `BOX-CAUTION-color`, `BOX-CAUTION-TEXT-color`, `BOX-CYAN-color`, `BOX-CYAN-TEXT-color`, `BOX-IMPORTANT-color`, `BOX-IMPORTANT-TEXT-color`. You don't need to change anything in your custom color stylesheet as appropriate default colors will be used.
+
+---
+
+## 6.1.0 (2024-08-02) {#610}
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} The [`include` shortcode](shortcodes/include) is now able to resolve links to pages as well as resources or files in the file system (the old behavior).
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} To make the asset buster mechanism more robust, some internally used stylesheets where restructured. This generally should not affect your page in any negative way.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`openapi` shortcode](shortcodes/openapi) is now able to resolve links to resources as well as to files in the file system (the old behavior). You can configure to generate warnings or errors during build by setting `openapi.errorlevel` to either `warning` or `error` in your `hugo.toml` if a path can not be resolved.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Shortcodes supporting an `errorlevel` configuration can now have overridden values in the [frontmatter](cont/frontmatter/) section of each individual page.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now comes with its own overridden version of the `relref` shortcode.
+
+  While the usage of `relref` is obsolete and discouraged by Hugo for a while, existing installations may use it. In configurations using a `baseURL` with a subdirectory, and having `relativeURLs=false` (the default) Hugo's standard `relref` implementation was failing.
+
+  The shortcode is deactivated by default and can be activated by setting
+
+    {{< multiconfig file=hugo >}}
+    [params]
+      disableDefaultRelref = true
+    {{< /multiconfig >}}
+
+  in your `hugo.toml`. Only do this if your site fulfills **all of the above assumptions**.
+
+---
+
+## 6.0.0 (2024-04-27) {#600}
+
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} This release requires you to move your self-defined variant (`theme-*.css`) and chroma stylesheets (`chroma-*.css`) from `static/css` to `assets/css`.
+
+  This was necessary to avoid permission errors on build if running in certain Unix configurations.
+
+  In addition it is not allowed anymore to `@import` your chroma stylesheet from inside of your variant stylesheet.
+
+  Say, your chroma stylesheet is named `chroma-monokai.css`, you have to add the following inside your variant stylesheet:
+
+    ````css
+    --CODE-theme: monokai;
+    ````
+
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} The parameter `description` in your `hugo.toml` will now be ignored.
+
+  With the newly introduced unified handling of descriptions throughout the theme, the only place the old parameter would have been used was your home page.
+
+  For migration, move the `description` parameter of your `hugo.toml` into the frontmatter section of your home page.
+
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} Search support for the `json` outputformat [deprecated in 5.4.0](#540) was removed.
+
+  Change it to `search` for the homepage in your `hugo.toml`. See the docs for [detailed configuration](basics/customization#activate-search).
+
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} The frontmatter option `menuTitle` [deprecated in 5.24.0](#5240) was removed in favor for Hugo’s own `linkTitle`.
+
+  Additionally, if set, `linkTitle` will now be used instead of `title` to generate the breadcrumb.
+
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} The `swagger` shortcode [deprecated in 5.13.0](#5130) was removed in favor for the  [`openapi` shortcode](shortcodes/openapi) with the same set of parameter.
+
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} Support for Internet Explorer 11 was finally dropped.
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} With the removal of support for Internet Explorer 11, Font Awesome was upgraded to version 6.5.2.
+
+  You may experience slight changes for some icons. In addition you have additional ~1700 icons [to chose](https://fontawesome.com/v6/search?m=free) from.
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} The [`children` shortcode](shortcodes/children) was fixed to adhere to its documentation, generating the description based on this rule: When no description or summary exists for the page, the first 70 words of the content is taken.
+
+  Previously, the summary erroneously was ignored which now can lead to different output if you set `description=true` as a parameter.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`include` shortcode](shortcodes/include) is now able to resolve links to resources as well as to files in the file system (the old behavior). You can configure to generate warnings or errors during build by setting `include.errorlevel` to either `warning` or `error` in your `hugo.toml` if a path can not be resolved.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Math is now usable without enclosing it in a shortcode or Markdown codefence by using Hugo's [passthrough configuration](shortcodes/math#passthrough-configuration).
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Translation into Romanian.
+
+---
+
+## 5.27.0 (2024-04-07) {#5270}
+
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.121.0{{% /badge %}} This release requires a newer Hugo version.
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} If the theme is configured to generate warnings or errors during build by setting `image.errorlevel` to either `warning` or `error` in your `hugo.toml`, it will now also generate output if a link fragment is not found in the target page.
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} The [dependency loader](basics/customization#own-shortcodes-with-javascript-dependencies) was made more versatile.
+
+  The configuration in your `hugo.toml` does not require the `location` parameter anymore. If you still use it, the theme will work as before but will generate a warning. So you don't need to change anything, yet.
+
+  With the new mechanism, your dependency loader now receives an additional `location` parameter instead that you can query to inject your dependencies in the desired location.
+
+  By that you can now call the dependency mechanism in your own overriden partials by giving it a distinct `location` parameter. In addition your injected files can now be spread to multiple locations which wasn't previously possible.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Additional styling was added for the native HTML elements `<mark>` and `<kbd>`. To use them you must allow the [usage of HTML](https://gohugo.io/getting-started/configuration-markup/#rendererunsafe) in your `hugo.toml`. The [Markdown documentation](cont/markdown/#standard-and-extensions) was enhanced for this.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You now can scroll forward and backward through all headings of a page by using <kbd>ALT</kbd> <kbd>🡑</kbd> and <kbd>ALT</kbd> <kbd>🡓</kbd>. This also works for the `PRINT` output format.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The breadcrumbs used in the topbar, search results and the taxonomy term lists are now using the pages frontmatter `linktitle` instead of `title` if set.
+
+---
+
+## 5.26.0 (2024-03-18) {#5260}
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The lazy loading of images is now configurable by using the new `lazy` [image effect](cont/imageeffects). The default value hasn't changed in comparison to older versions, you don't need to change anything.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} It is now possible to [adjust the max width of the main area](basics/customization#change-the-main-areas-max-width), eg. in case you want to use the full page width for your content.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Images and Markdown codefences are now respecting [Hugo's Markdown attributes](https://gohugo.io/content-management/markdown-attributes/).
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme has updated its Mermaid dependency to 10.6.0. This adds support for [block diagrams](shortcodes/mermaid#block-diagram).
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} This release fixes a long outstanding bug where the page wasn't repositioning correctly when going forward or backward in your browser history.
+
+---
+
+## 5.25.0 (2024-02-29) {#5250}
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} This release deprecates the [`attachments` shortcode](shortcodes/attachments) in favor of the new the [`resources` shortcode](shortcodes/resources).
+
+  If you are using Hugo below {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.123.0{{% /badge %}}, you don't need to change anything as the old shortcode still works (but may generate warnings).
+
+  Anyways, users are strongly advised to migrate as the `attachments` shortcode will not receive support anymore. Migration instructions are listed on the [`attachments` shortcode page](shortcodes/attachments#migration).
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} If you run Hugo with [GitInfo](https://gohugo.io/methods/page/gitinfo/) configured, the default page footer now prints out name, email address and date of the last commit. If you want to turn this off you either have to run Hugo without GitInfo (which is the default) or overwrite the `content-footer.html` partial.
+
+## 5.24.0 (2024-02-28) {#5240}
+
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.112.4{{% /badge %}} This release requires a newer Hugo version.
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} The topbar button received a way to add text next to the icon. For this, the original `title` option was renamed to `hint` while the new `title` option is now displayed next to the icon.
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} The light themes have a bit more contrast for content text and headings. Also the syntaxhighlighting was changed to the more colorful MonokaiLight. This brings the syntaxhighlightning in sync with the corresponding dark theme variants, which are using Monokai. If you dislike this, you can create your own color variant file as [described here](basics/branding#modify-shipped-variants).
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} The frontmatter option `menuTitle` is now deprecated in favor for Hugo's own `linkTitle`. You don't need to change anything as the old `menuTitle` option is still supported.
+
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} The light themes have a bit more contrast for content text and headings. Also the syntaxhighlighting was changed to the more colorful MonokaiLight. This brings the syntaxhighlighting in sync with the corresponding dark theme variants, which are using Monokai. If you dislike this, you can create your own color variant file as [described here](basics/branding#modify-shipped-variants).
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} If the theme can not resolve a link to a page or image, you can now generate warnings or errors during build by setting `link.errorlevel` or `image.errorlevel` to either `warning` or `error` in your `hugo.toml` respectively. By default this condition is silently ignored and the link is written as-is.
+
+  Please note that a page link will generate false negatives if `uglyURLs=true` and it references an ordinary page before {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.123.0{{% /badge %}}.
+
+  Please note that an image link will generate false negatives if the file resides in your `static` directory.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You now can configure additional options for every theme variant in your `hugo.toml`. This allows for optional [advanced functionality](basics/branding#theme-variant-advanced). You don't need to change anything as the old configuration options will still work (but may generate warnings now).
 
-  The advanced functionality allows you to set an explicit name for a theme variant, set different colors (if you are using monochrome SVGs) or even different icons (handy if you want to adjust colors for PNGs, GIFs or JPGs) and now allows for multiple auto mode variants that adjust to the light/dark preference of your OS settings.
+  The advanced functionality allows you to set an explicit name for a theme variant and now allows for multiple auto mode variants that adjust to the light/dark preference of your OS settings.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} New partial for defining the heading. See [documentation](basics/customization#partials) for further reading.
 
@@ -36,29 +173,37 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} On taxonomy and term pages you can now use prev/next navigation as within the normal page structure.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Improvements for accessibility when tabbing thru the page for images, links and tab handles.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} In additiion to the existing [menu width customization](basics/customization#change-the-menu-width), it is now also possible to set the width of the menu flyout for small screen sizes with the `--MENU-WIDTH-S` CSS property.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Improvements for accessibility when tabbing through the page for images, links and tab handles.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The `editURL` config parameter is now [overwritable in your pages frontmatter](cont/frontmatter). In addition it received more versatility by letting you control where to put the file path into the URL. This is achieved by replacing the variable `${FilePath}` in your URL by the pages file path. You don't need to change anything in your existing configuration as the old way without the replacement variable still works.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The themes [config](basics/configuration) and [frontmatter](cont/frontmatter) options received a comprehensive documentation update. In addition the theme switched from `config.toml` to `hugo.toml`.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo versions {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.121.0{{% /badge %}} or higher for the [`highlight` shortcode](shortcodes/highlight). This does not change the minimum required Hugo version.
+
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo versions {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.123.0{{% /badge %}} or higher for theme specific [output formats](basics/customization) and handling of taxonomy and term titles. This does not change the minimum required Hugo version.
 
 ---
 
 ## 5.23.0 (2023-11-03) {#5230}
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} With {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.120.0{{% /badge %}} the author settings move into the `[params]` array in your `hugo.toml`. Because this collides with the previous way, the theme expected author information, it now adheres to Hugo standards and prints out a warning during built if something is wrong.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} With {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.120.0{{% /badge %}} the author settings move into the `[params]` array in your `hugo.toml`. Because this collides with the previous way, the theme expected author information, it now adheres to Hugo standards and prints out a warning during built if something is wrong.
 
   Change your previous setting from
 
-    ````toml
+    {{< multiconfig file=hugo >}}
     [params]
       author = "Hugo"
-    ````
+    {{< /multiconfig >}}
 
   to
 
-    ````toml
+    {{< multiconfig file=hugo >}}
     [params]
       author.name = "Hugo"
-    ````
+    {{< /multiconfig >}}
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} Taxonomy [term pages](https://gohugo.io/content-management/taxonomies#add-custom-metadata-to-a-taxonomy-or-term) now add the breadcrumb for each listed page. If this gets too crowded for you, you can turn the breadcrumbs off in your `hugo.toml` by adding `disableTermBreadcrumbs=true`.
 
@@ -78,11 +223,11 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} This release adds portable Markdown links.
 
-  Previously it was not possible to use pure Markdown links in a configuration independend way to link to pages inside of your project. It always required you to know how your `uglyURLs` setting is, wheather you link to a page or page bundle and in case of relative links if your current page is a page or page bundle. (eg. `[generator](generator/index.html)` vs. `[generator](generator.html)`). This is a hassle as you have to change these links manually once you change your `uglyURLs` setting or change the type of a page.
+  Previously it was not possible to use pure Markdown links in a configuration independent way to link to pages inside of your project. It always required you to know how your `uglyURLs` setting is, wheather you link to a page or page bundle and in case of relative links if your current page is a page or page bundle. (eg. `[generator](generator/index.html)` vs. `[generator](generator.html)`). This is a hassle as you have to change these links manually once you change your `uglyURLs` setting or change the type of a page.
 
   You could work around this by using the `relref` shortcode (eg `[generator]({{%/* relref "../generator" */%}})`) which works but results in non-portable Markdown.
 
-  Now it's possible to use the same path of a call to `relref` in a plain Markdown link (eg `[generator](../generator)`). This is independend of any configuration settings or the page types involved in linking. Note, that this requires your links to be given without any extension, so `[generator](generator/index.html)` will work as before.
+  Now it's possible to use the same path of a call to `relref` in a plain Markdown link (eg `[generator](../generator)`). This is independent of any configuration settings or the page types involved in linking. Note, that this requires your links to be given without any extension, so `[generator](generator/index.html)` will work as before.
 
   The following types of linking are supported:
 
@@ -105,7 +250,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} You can now have structural sections in the hierarchical menu without generating a page for it.
 
-  This can come in handy, if content for such a section page doesn't make much sense to you. See [the documentation](cont/pages#disable-section-pages) for how to do this.
+  This can come in handy, if content for such a section page doesn't make much sense to you. See [the documentation](cont/frontmatter#disable-section-pages) for how to do this.
 
   This feature may require you to make changes to your existing installation if you are already using _[shortcuts to pages inside of your project](cont/menushortcuts#shortcuts-to-pages-inside-of-your-project)_ with a _headless branch parent_.
 
@@ -139,9 +284,9 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} The theme has updated its Swagger dependency to 5.4.1 for the [`openapi` shortcode](shortcodes/openapi).
 
-  With this comes a change in the light theme variants of `Relearn Bright`, `Relearn Light` and `Zen Light` by switching the syntaxhighlightning inside of openapi to a light scheme. This brings it more in sync with the code style used by the theme variants itself.
+  With this comes a change in the light theme variants of `Relearn Bright`, `Relearn Light` and `Zen Light` by switching the syntaxhighlighting inside of openapi to a light scheme. This brings it more in sync with the code style used by the theme variants itself.
 
-  Additionally, the syntaxhighlightning inside of openapi for printing was switched to a light scheme for all theme variants.
+  Additionally, the syntaxhighlighting inside of openapi for printing was switched to a light scheme for all theme variants.
 
   If you dislike this change, you can revert this in your theme variants CSS by adding
 
@@ -158,17 +303,17 @@ This document shows you what's new in the latest release and flags it with one o
 
   For existing variants nothing has changed visually.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The default values for the [image effects](cont/markdown#image-effects) are [now configurable](cont/imageeffects) for your whole site via `hugo.toml` or for each page thru frontmatter.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The default values for the [image effects](cont/markdown#image-effects) are [now configurable](cont/imageeffects) for your whole site via `hugo.toml` or for each page through frontmatter.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} This release fixes a long outstanding bug where Mermaid graphs could not be displayed if they were initially hidden - like in collapsed `expand` or inactive `tabs`.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo versions lower than {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.111.0{{% /badge %}} for the [`highlight` shortcode](shortcodes/highlight). This does not change the minimum required Hugo version.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo versions lower than {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.111.0{{% /badge %}} for the [`highlight` shortcode](shortcodes/highlight). This does not change the minimum required Hugo version.
 
 ---
 
 ## 5.19.0 (2023-08-12) {#5190}
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`highlight` shortcode](shortcodes/highlight) now accepts the new parameter `title`. This displays the code like a [single tab](shortcodes/tab). This is also available using codefences and makes it much easier to write nicer code samples.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`highlight` shortcode](shortcodes/highlight) now accepts the new parameter `title`. This displays the code like a [single tab](shortcodes/tab). This is also available using Markdown codefences and makes it much easier to write nicer code samples.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme has added two new color variants `zen-light` and `zen-dark`. Check it out!
 
@@ -184,11 +329,11 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} The theme adds additional warnings for deprecated or now unsupported features.
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} There are visual improvements in displaying text links in your content aswell as to some other clickable areas in the theme. If you've overwritten some theme styles in your own CSS, keep this in mind.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} There are visual improvements in displaying text links in your content as well as to some other clickable areas in the theme. If you've overwritten some theme styles in your own CSS, keep this in mind.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.95.0{{% /badge %}} or higher. This does not change the minimum required Hugo version.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.95.0{{% /badge %}} or higher. This does not change the minimum required Hugo version.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`siteparam` shortcode](shortcodes/siteparam) is now capable in displaying nested params aswell as supporting text formatting.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`siteparam` shortcode](shortcodes/siteparam) is now capable in displaying nested params as well as supporting text formatting.
 
 ---
 
@@ -200,7 +345,7 @@ This document shows you what's new in the latest release and flags it with one o
 
   If you dislike this new behavior you can turn it off and revert to the old behavior by adding `[params] disableHoverBlockCopyToClipBoard=true` to your `hugo.toml`.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.114.0{{% /badge %}} or higher. This does not change the minimum required Hugo version.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Restored compatibility with Hugo {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.114.0{{% /badge %}} or higher. This does not change the minimum required Hugo version.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The new [`highlight` shortcode](shortcodes/highlight) replaces Hugo's default implementation and is fully compatible. So you don't need to change anything.
 
@@ -210,7 +355,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 5.16.0 (2023-06-10) {#5160}
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} The theme now provides warnings for deprecated or now unsupported features. The warnings include hints how to fix them and an additional link to the documenation.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} The theme now provides warnings for deprecated or now unsupported features. The warnings include hints how to fix them and an additional link to the documentation.
 
   `DEPRECATION` warnings mark features that still work but may be removed in the future.
 
@@ -224,15 +369,15 @@ This document shows you what's new in the latest release and flags it with one o
 
   Additionally the `name` parameter was renamed to `title` but you don't need to change anything yet as the old name will be used as a fallback. Nevertheless you will get deprecation warnings while executing Hugo.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now optionally supports [separate favicons](basics/customization#change-the-favicon) for light & dark mode.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now optionally supports [separate favicons](basics/branding#change-the-favicon) for light & dark mode.
 
 ---
 
 ## 5.15.0 (2023-05-29) {#5150}
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} Restored compatibility with Hugo {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.112.0{{% /badge %}} or higher. This does not change the minimum required Hugo version.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} Restored compatibility with Hugo {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.112.0{{% /badge %}} or higher. This does not change the minimum required Hugo version.
 
-  The [`attachments` shortcode](shortcodes/attachments) has compatiblity issues with newer Hugo versions. You must switch to leaf bundles or are locked to Hugo < `0.112.0` for now.
+  The [`attachments` shortcode](shortcodes/attachments) has compatibility issues with newer Hugo versions. You must switch to leaf bundles or are locked to Hugo < `0.112.0` for now.
 
   It is [planned to refactor](https://github.com/McShelby/hugo-theme-relearn/issues/22) the `attchments` shortcode in the future. This will make it possible to use the shortcode in branch bundles again but not in simple pages anymore. This will most likely come with a breaking change.
 
@@ -261,8 +406,8 @@ This document shows you what's new in the latest release and flags it with one o
   So how to adjust the position of tags starting from the theme's default where tags are only shown above the title?
 
   1. Hide tags above title: Overwrite `content-header.html` with an empty file.
-  2. Show tags between title and content: Overwrite `heading-post.html` and add `{{- partial "tags.html" . }}` to it.
-  3. Show tags below content: Overwrite `content-footer.html` and add `{{- partial "tags.html" . }}` to it.
+  2. Show tags between title and content: Overwrite `heading-post.html` and add `{{ partial "tags.html" . }}` to it.
+  3. Show tags below content: Overwrite `content-footer.html` and add `{{ partial "tags.html" . }}` to it.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The new parameter `breadcrumbSeparator` is now available in your `hugo.toml` to change the - well - separator of the breadcrumb items. An appropriate default is in place if you do not configure anything.
 
@@ -284,7 +429,7 @@ This document shows you what's new in the latest release and flags it with one o
 
   The theme provides Front Matter snippets for its shortcodes. Currently only English and German is supported. Put a reference into your `frontmatter.json` like this
 
-  ````json
+  ````json {title="frontmatter.json"}
   {
     ...
     "frontMatter.extends": [
@@ -304,9 +449,9 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} The theme removed the popular [jQuery](https://jquery.com) library from its distribution.
 
-  In case you made changes to the theme that are dependend on this library you can place a copy of jQuery into your `static/js` directory and load it from your own `layouts/partials/custom-header.html` like this:
+  In case you made changes to the theme that are depending on this library you can place a copy of jQuery into your `static/js` directory and load it from your own `layouts/partials/custom-header.html` like this:
 
-  ````html
+  ````html {title="layouts/partials/custom-header.html"}
   <script src="{{"js/jquery.min.js"| relURL}}" defer></script>
   ````
 
@@ -346,41 +491,40 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} With this version it is now possible to not only have sections on the first menu level but also pages.
 
-  It was later discovered, that this causes pages only meant to be displayed in the `More` section of the menu and stored directly inside your `content` directory to now show up in the menu aswell.
+  It was later discovered, that this causes pages only meant to be displayed in the `More` section of the menu and stored directly inside your `content` directory to now show up in the menu as well.
 
   To [get rid](cont/menushortcuts#shortcuts-to-pages-inside-of-your-project) of this undesired behavior you have two choices:
 
   1. Make the page file a [headless branch bundle](https://gohugo.io/content-management/page-bundles/#headless-bundle) (contained in its own subdirectory and called `_index.md`) and add the following frontmatter configuration to the file (see exampleSite's `content/showcase/_index.en.md`). This causes its content to **not** be ontained in the sitemap.
 
-      ````toml
+      {{< multiconfig fm=true >}}
       title = "Showcase"
       [_build]
         render = "always"
         list = "never"
         publishResources = true
-      ````
+      {{< /multiconfig >}}
 
-  2. Store the page file for below a parent headless branch bundle and add the following frontmatter to he **parent** (see exampleSite's `content/more/_index.en.md`).
+  2. Store the page file for below a parent headless branch bundle and add the following frontmatter to he **parent** (see exampleSite's `content/more/_index.en.md`). **Don't give this page a `title`** as this will cause it to be shown in the breadcrumbs - a thing you most likely don't want.
 
-      ````toml
-      # title = "More" ### ATTENTION: Don't give this page a title as this will cause it to be in the breadcrumbs - a thing you most likely don't want
+      {{< multiconfig fm=true >}}
       [_build]
         render = "never"
         list = "never"
         publishResources = false
-      ````
+      {{< /multiconfig >}}
 
       In this case, the file itself can be a branch bundle, leaf bundle or simple page (see exampleSite's `content/more/credits.en.md`). This causes its content to be contained in the sitemap.
 
-      ````toml
+      {{< multiconfig fm=true >}}
       title = "Credits"
-      ````
+      {{< /multiconfig >}}
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} The required folder name for the [`attachments` shortcode](shortcodes/attachments) was changed for leaf bundles.
 
   Previously, the attachments for leaf bundles in non-multilang setups were required to be in a `files` subdirectory. For page bundles and leaf bundles in multilang setups they were always required to be in a `_index.<LANGCODE>.files` or `index.<LANGCODE>.files` subdirectory accordingly.
 
-  This added unnessessary complexity. So attachments for leaf bundles in non-multilang setups can now also reside in a `index.files` directory. Although the old `files` directory is now deprecated, if both directories are present, only the old `files` directory will be used for compatiblity.
+  This added unnecessary complexity. So attachments for leaf bundles in non-multilang setups can now also reside in a `index.files` directory. Although the old `files` directory is now deprecated, if both directories are present, only the old `files` directory will be used for compatibility.
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} Absolute links prefixed with `http://` or `https://` are now opened in a separate browser tab.
 
@@ -396,9 +540,9 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The new [`icon` shortcode](shortcodes/icon) simplyfies the usage of icons. This can even be combined with also new `badge` shortcode.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now supports some of GFM (GitHub Flavored Markdown) syntax and Hugo Markdown extensions, namely [task lists](cont/markdown#tasks), [defintion lists](cont/markdown#defintions) and [footnotes](cont/markdown#footnotes).
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now supports some of GFM (GitHub Flavored Markdown) syntax and Hugo Markdown extensions, namely [task lists](cont/markdown#tasks), [defintion lists](cont/markdown#definitions) and [footnotes](cont/markdown#footnotes).
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} A new color `--ACCENT-color` was introduced which is used for highlightning search results on the page. In case you simply don't care, you don't need to change anything in your variant stylesheet as the old `yellow` color is still used as default.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} A new color `--ACCENT-color` was introduced which is used for highlighting search results on the page. In case you simply don't care, you don't need to change anything in your variant stylesheet as the old `yellow` color is still used as default.
 
 ---
 
@@ -414,9 +558,9 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 5.6.0 (2022-11-18) {#560}
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} This release introduces an additional dedicated search page. On this page, displayed search results have more space making it easier scanning thru large number of results.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} This release introduces an additional dedicated search page. On this page, displayed search results have more space making it easier scanning through large number of results.
 
-  To activate this feature, you need to [configure it](basics/customization#activate-dedicated-search-page) in your `hugo.toml` as a new outputformat `SEARCHPAGE` for the home page. If you don't configure it, no dedicated search page will be accessible and the theme works as before.
+  To activate this feature, you need to [configure it](basics/customization#activate-dedicated-search-page) in your `hugo.toml` as a new outputformat `searchpage` for the home page. If you don't configure it, no dedicated search page will be accessible and the theme works as before.
 
   You can access the search page by either clicking on the magnifier glass or pressing enter inside of the search box.
 
@@ -424,7 +568,7 @@ This document shows you what's new in the latest release and flags it with one o
 
   Pressing `CTRL+ALT+t` now will not only toggle the TOC overlay but also places the focus to the first heading on opening. Subsequently this makes it possible to easily select headings by using the `TAB` key.
 
-  The search received its own brand new keyboard shortcut `CTRL+ALT+f`. This will focus the cursor inside of the the search box so you can immediately start your search by typing.
+  The search received its own brand new keyboard shortcut `CTRL+ALT+f`. This will focus the cursor inside of the search box so you can immediately start your search by typing.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You are now able to turn off the generation of generator meta tags in your HTML head to hide the used versions of Hugo and this theme.
 
@@ -452,13 +596,13 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 5.4.0 (2022-11-01) {#540}
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} [With the proper settings](basics/customization#serving-your-page-from-the-filesystem) in your `hugo.toml` your page is now servable from the local file system using `file://` URLs.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} [With the proper settings](basics/customization#file-system) in your `hugo.toml` your page is now servable from the local file system using `file://` URLs.
 
-  Please note that the searchbox will only work for this if you reconfigure your outputformat for the homepage in your `hugo.toml` from `JSON` to `SEARCH`. The now deprecated `JSON` outputformat still works as before, so there is no need to reconfigure your installation if it is only served from `http://` or `https://`.
+  Please note that the searchbox will only work for this if you reconfigure your outputformat for the homepage in your `hugo.toml` from `json` to `search`. The now deprecated `json` outputformat still works as before, so there is no need to reconfigure your installation if it is only served from `http://` or `https://`.
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} The [`button` shortcode](shortcodes/button) has a new parameter `target` to set the destination frame/window for the URL to open. If not given, it defaults to a new window/tab for external URLs or is not set at all for internal URLs. Previously even internal URLs where opened in a new window/tab.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`math` shortcode](shortcodes/math) and [`mermaid` shortcode](shortcodes/mermaid) now also support the `align` parameter if codefence syntax is used.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The [`math` shortcode](shortcodes/math) and [`mermaid` shortcode](shortcodes/mermaid) now also support the `align` parameter if Markdown codefences are used.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Support for languages that are written right to left (like Arabic). This is only implemented for the content area but not the navigation sidebar. This feature is not available in Internet Explorer 11.
 
@@ -470,7 +614,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} In the effort to comply with WCAG standards, the implementation of the collapsible menu was changed. The functionality of the new implementation does not work with old browsers (Internet Explorer 11).
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} [Image formatting](cont/markdown#add-css-classes) has two new classes to align images to the `left` or `right`. Additionally, the already existing `inline` option is now documented.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} [Image formatting](cont/markdown#css-classes) has two new classes to align images to the `left` or `right`. Additionally, the already existing `inline` option is now documented.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Printing for the [`swagger` shortcode](shortcodes/openapi) was optimized to expand sections that are usually closed in interactive mode. This requires [print support](basics/customization#activate-print-support) to be configured.
 
@@ -484,22 +628,22 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 5.1.0 (2022-07-15) {#510}
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.95.0{{% /badge %}} This release requires a newer Hugo version.
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.95.0{{% /badge %}} This release requires a newer Hugo version.
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} Because the print preview URLs were non deterministic for normal pages in comparison to page bundles, this is now changed. Each print preview is now accessible by adding a `index.print.html` to the default URL.
 
-  You can revert this behavior by overwriting the PRINT output format setting in your `hugo.toml`to:
+  You can revert this behavior by overwriting the `print` output format setting in your `hugo.toml`to:
 
-  ````toml
+  {{< multiconfig file=hugo >}}
   [outputFormats]
-    [outputFormats.PRINT]
-      name= "PRINT"
+    [outputFormats.print]
+      name= "print"
       baseName = "index"
       path = "_print"
       isHTML = true
       mediaType = 'text/html'
       permalinkable = false
-  ````
+  {{< /multiconfig >}}
 
 ---
 
@@ -591,11 +735,11 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 3.2.0 (2022-03-19) {#320}
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.93.0{{% /badge %}} This release requires a newer Hugo version.
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.93.0{{% /badge %}} This release requires a newer Hugo version.
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} In this release the Mermaid JavaScript library will only be loaded on demand if the page contains a Mermaid shortcode or is using Mermaid codefences. This changes the behavior of `disableMermaid` config option as follows: If a Mermaid shortcode or codefence is found, the option will be ignored and Mermaid will be loaded regardlessly.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} In this release the Mermaid JavaScript library will only be loaded on demand if the page contains a Mermaid shortcode or is using Markdown codefences. This changes the behavior of `disableMermaid` config option as follows: If a Mermaid shortcode or Markdown codefence is found, the option will be ignored and Mermaid will be loaded regardlessly.
 
-  The option is still useful in case you are using scripting to set up your graph. In this case no shortcode or codefence is involved and the library is not loaded by default. In this case you can set `disableMermaid=false` in your frontmatter to force the library to be loaded. See the [theme variant generator](basics/generator) of the exampleSite for an example.
+  The option is still useful in case you are using scripting to set up your graph. In this case no shortcode or Markdown codefence is involved and the library is not loaded by default. In this case you can set `disableMermaid=false` in your frontmatter to force the library to be loaded. See the [theme variant generator](basics/generator) of the exampleSite for an example.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Additional color variant variable `--MERMAID-theme` to set the variant's Mermaid theme. This causes the Mermaid theme to switch with the color variant if it defers from the setting of the formerly selected color variant.
 
@@ -639,7 +783,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 2.9.0 (2021-11-19) {#290}
 
-- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} This release removes the themes implementation of `ref`/`relref` in favor for Hugos standard implementation. This is because of inconsistencies with the themes implementation. In advantage, your project becomes standard compliant and exchanging this theme in your project to some other theme will be effortless.
+- {{% badge style="warning" title=" " %}}Breaking{{% /badge %}} This release removes the themes implementation of `ref`/`relref` in favor for Hugo's standard implementation. This is because of inconsistencies with the themes implementation. In advantage, your project becomes standard compliant and exchanging this theme in your project to some other theme will be effortless.
 
   In a standard compliant form you must not link to the `*.md` file but to its logical name. You'll see, referencing other pages becomes much easier. All three types result in the same reference:
 
@@ -651,13 +795,13 @@ This document shows you what's new in the latest release and flags it with one o
 
   If you've linked from a page of one language to a page of another language, conversion is a bit more difficult but [Hugo got you covered](https://gohugo.io/content-management/cross-references/#link-to-another-language-version) as well.
 
-  Also, the old themes implementation allowed refs to non-existing content. This will cause Hugos implementation to show the error below and abort the generation. If your project relies on this old behavior, you can [reconfigure the error handling](https://gohugo.io/content-management/cross-references/#link-to-another-language-version) of Hugos implementation.
+  Also, the old themes implementation allowed refs to non-existing content. This will cause Hugo's implementation to show the error below and abort the generation. If your project relies on this old behavior, you can [reconfigure the error handling](https://gohugo.io/content-management/cross-references/#link-to-another-language-version) of Hugo's implementation.
 
   In the best case your usage of the old implementation is already standard compliant and you don't need to change anything. You'll notice this very easily once you've started `hugo server` after an upgrade and no errors are written to the console.
 
   You may see errors on the console after the update in the form:
 
-  ````sh
+  ````shell
   ERROR 2021/11/19 22:29:10 [en] REF_NOT_FOUND: Ref "basics/configuration/_index.md": "hugo-theme-relearn\exampleSite\content\_index.en.md:19:22": page not found
   ````
 
@@ -673,7 +817,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} Although never officially documented, this release removes the font `Novacento`/`Novecento`. If you use it in an overwritten CSS please replace it with `Work Sans`. This change was necessary as Novacento did not provide all Latin special characters and lead to mixed styled character text eg. for Czech.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now supports favicons served from `static/images/` named as `favicon` or `logo` in SVG, PNG or ICO format [out of the box](basics/customization#change-the-favicon). An overridden partial `layouts/partials/favicon.html` may not be necessary anymore in most cases.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} The theme now supports favicons served from `static/images/` named as `favicon` or `logo` in SVG, PNG or ICO format [out of the box](basics/branding#change-the-favicon). An overridden partial `layouts/partials/favicon.html` may not be necessary anymore in most cases.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You can hide the table of contents menu for the whole site by setting the `disableToc` option in your `hugo.toml`. For an example see [the example configuration](basics/configuration).
 
@@ -687,13 +831,13 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 2.6.0 (2021-10-21) {#260}
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Your site can now be served from a subfolder if you set `baseURL` and `canonifyURLs=true` in your `hugo.toml`. See the [documentation](basics/customization#serving-your-page-from-a-subfolder) for a detailed example.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Your site can now be served from a subfolder if you set `baseURL` in your `hugo.toml`. See the [documentation](basics/customization#public-web-server-from-subdirectory) for a detailed example.
 
 ---
 
 ## 2.5.0 (2021-10-08) {#250}
 
-- {{% badge style="note" title=" " %}}Change{{% /badge %}} New colors `--CODE-BLOCK-color` and `--CODE-BLOCK-BG-color` were added to provide a fallback for Hugos syntax highlighting in case no language was given or the language is unsupported. Ideally the colors are set to the same values as the ones from your chosen chroma style.
+- {{% badge style="note" title=" " %}}Change{{% /badge %}} New colors `--CODE-BLOCK-color` and `--CODE-BLOCK-BG-color` were added to provide a fallback for Hugo's syntax highlighting in case no language was given or the language is unsupported. Ideally the colors are set to the same values as the ones from your chosen chroma style.
 
 ---
 
@@ -703,7 +847,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Hidden pages are displayed by default in their according tags page. You can now turn off this behavior by setting `disableTagHiddenPages=true` in your `hugo.toml`.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You can define the expansion state of your menus for the whole site by setting the `alwaysopen` option in your `hugo.toml`. Please see further [documentation](cont/pages#override-expand-state-rules-for-menu-entries) for possible values and default behavior.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You can define the expansion state of your menus for the whole site by setting the `alwaysopen` option in your `hugo.toml`. Please see further [documentation](cont/frontmatter#override-expand-state-rules-for-menu-entries) for possible values and default behavior.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} New frontmatter `ordersectionsby` option to change immediate children sorting in menu and `children` shortcode. Possible values are `title` or `weight`.
 
@@ -713,7 +857,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 2.3.0 (2021-09-13) {#230}
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.81.0{{% /badge %}} This release requires a newer Hugo version.
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.81.0{{% /badge %}} This release requires a newer Hugo version.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Showcase multilanguage features by providing a documentation translation "fer us pirrrates". There will be no other translations besides the original English one and the Pirates one due to maintenance constraints.
 
@@ -727,7 +871,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 2.1.0 (2021-09-07) {#210}
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.69.0{{% /badge %}} This release requires a newer Hugo version.
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.69.0{{% /badge %}} This release requires a newer Hugo version.
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} In case the site's structure contains additional *.md files not part of the site (eg files that are meant to be included by site pages - see `CHANGELOG.md` in the exampleSite), they will now be ignored by the search.
 
@@ -753,7 +897,7 @@ This document shows you what's new in the latest release and flags it with one o
 
 - {{% badge style="note" title=" " %}}Change{{% /badge %}} A page without a `title` will be treated as `hidden=true`.
 
-- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You can define the expansion state of your menus in the frontmatter. Please see further [documentation](cont/pages#override-expand-state-rules-for-menu-entries) for possible values and default behavior.
+- {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} You can define the expansion state of your menus in the frontmatter. Please see further [documentation](cont/frontmatter#override-expand-state-rules-for-menu-entries) for possible values and default behavior.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} New partials for defining pre/post content for menu items and the content. See [documentation](basics/customization#partials) for further reading.
 
@@ -779,6 +923,6 @@ This document shows you what's new in the latest release and flags it with one o
 
 ## 1.0.0 (2021-07-01) {#100}
 
-- {{% badge color="fuchsia" icon="fab fa-hackerrank" title=" " %}}0.65.0{{% /badge %}} The requirement for the Hugo version of this theme is the same as for the Learn theme version 2.5.0 on 2021-07-01.
+- {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.65.0{{% /badge %}} The requirement for the Hugo version of this theme is the same as for the Learn theme version 2.5.0 on 2021-07-01.
 
 - {{% badge style="info" icon="plus-circle" title=" " %}}New{{% /badge %}} Initial fork of the [Learn theme](https://github.com/matcornic/hugo-theme-learn) based on Learn 2.5.0 on 2021-07-01. This introduces no new features besides a global rename to `Relearn` and a new logo. For the reasons behind forking the Learn theme, see [this comment](https://github.com/matcornic/hugo-theme-learn/issues/442#issuecomment-907863495) in the Learn issues.

@@ -5,7 +5,6 @@
 	{{- $by = "" }}
 {{- end }}
 {{- $by = $by | default $page.Params.ordersectionsby | default $page.Site.Params.ordersectionsby | default "weight" }}
-{{- $hidden := .hidden }}
 
 {{- $pages := slice }}
 
@@ -30,16 +29,6 @@
 {{- else }}
 	{{- warnf "%q: Unknown pages sort order '%s'" $page.File.Filename }}
 	{{- $pages = $page.Pages }}
-{{- end }}
-
-{{- if not $hidden }}
-	{{- $nonhiddenpages := slice }}
-	{{- range $page := $pages }}
-		{{- if not (partial "pageHelper/isHidden.html" $page) }}
-			{{- $nonhiddenpages := $nonhiddenpages | append $page }}
-		{{- end }}
-	{{- end }}
-	{{- $pages = $nonhiddenpages }}
 {{- end }}
 
 {{- return $pages }}

@@ -11,9 +11,19 @@ It is all about the boxes.
 
 ## Usage
 
-While the examples are using shortcodes with named parameter you are free to use positional as well or also call this shortcode from your own partials.
+While the examples are using shortcodes with named parameter you are free to use positional as well, use it as [GitHub styled alerts](/cont/markdown#alerts) or also call this shortcode from your own partials.
+
+Note that if you want to use GitHub styled alerts Markdown, this is only available starting with Hugo {{% badge color="fuchsia" icon="fa-fw fab fa-hackerrank" title=" " %}}0.132.0{{% /badge %}}. In this case no parameter from the below table are available.
 
 {{< tabs groupid="shortcode-parameter">}}
+{{% tab title="markdown" %}}
+
+````md
+> [!NOTE]
+> It is all about the boxes.
+````
+
+{{% /tab %}}
 {{% tab title="shortcode" %}}
 
 ````go
@@ -51,21 +61,34 @@ It is all about the boxes.
 
 | Name      | Position | Default   | Notes       |
 |-----------|----------|-----------|-------------|
-| **style** | 1        | `default` | The style scheme used for the box.<br><br>- by severity: `info`, `note`, `tip`, `warning`<br>- by brand color: `primary`, `secondary`, `accent`<br>- by color: `blue`, `green`, `grey`, `orange`, `red`<br>- by special color: `default`, `transparent`, `code` |
+| **style** | 1        | `default` | The style scheme used for the box.<br><br>- by severity: `caution`, `important`, `info`, `note`, `tip`, `warning`<br>- by brand color: `primary`, `secondary`, `accent`<br>- by color: `blue`, `cyan`, `green`, `grey`, `magenta`, `orange`, `red`<br>- by special color: `default`, `transparent`, `code` |
 | **color** |          | see notes | The [CSS color value](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value) to be used. If not set, the chosen color depends on the **style**. Any given value will overwrite the default.<br><br>- for severity styles: a nice matching color for the severity<br>- for all other styles: the corresponding color |
 | **title** | 2        | see notes | Arbitrary text for the box title. Depending on the **style** there may be a default title. Any given value will overwrite the default.<br><br>- for severity styles: the matching title for the severity<br>- for all other styles: _&lt;empty&gt;_<br><br>If you want no title for a severity style, you have to set this parameter to `" "` (a non empty string filled with spaces) |
 | **icon**  | 3        | see notes | [Font Awesome icon name](shortcodes/icon#finding-an-icon) set to the left of the title. Depending on the **style** there may be a default icon. Any given value will overwrite the default.<br><br>- for severity styles: a nice matching icon for the severity<br>- for all other styles: _&lt;empty&gt;_<br><br>If you want no icon for a severity style, you have to set this parameter to `" "` (a non empty string filled with spaces) |
 | _**&lt;content&gt;**_ |          | _&lt;empty&gt;_ | Arbitrary text to be displayed in box. |
 
+## Configuration
+
+If you are using [GitHub styled alerts](/cont/markdown#alerts), by default the theme also accepts alert levels like `info` not known to GitHub's implementation. If this interferes with your layout, you can turn this extension off by setting `disableBlockquoteNoticeSupport=true` in your `hugo.toml`.
+
+### Global Configuration File
+
+This example reflects the default configuration also used if you don't set anything explicitly.
+
+{{< multiconfig file=hugo >}}
+[params]
+  disableBlockquoteNoticeSupport = false
+{{< /multiconfig >}}
+
 ## Examples
 
 ### By Severity
 
-#### Info with markup
+#### Caution with markup
 
 ````go
-{{%/* notice style="info" */%}}
-An **information** disclaimer
+{{%/* notice style="caution" */%}}
+An **caution** disclaimer
 
 You can add standard markdown syntax:
 
@@ -83,8 +106,8 @@ You can add standard markdown syntax:
 {{%/* /notice */%}}
 ````
 
-{{% notice style="info" %}}
-An **information** disclaimer
+{{% notice style="caution" %}}
+An **caution** disclaimer
 
 You can add standard markdown syntax:
 
@@ -99,6 +122,30 @@ You can add standard markdown syntax:
 ```
 
 > the possibilities are endless (almost - including other shortcodes may or may not work)
+{{% /notice %}}
+
+#### Important
+
+````go
+{{%/* notice style="important" */%}}
+A **important** disclaimer
+{{%/* /notice */%}}
+````
+
+{{% notice style="important" %}}
+A **important** disclaimer
+{{% /notice %}}
+
+#### Info
+
+````go
+{{%/* notice style="info" */%}}
+A **information** disclaimer
+{{%/* /notice */%}}
+````
+
+{{% notice style="info" %}}
+A **information** disclaimer
 {{% /notice %}}
 
 #### Note
@@ -118,6 +165,7 @@ A **notice** disclaimer
 ````go
 {{%/* notice style="tip" */%}}
 A **tip** disclaimer
+{{%/* /notice */%}}
 ````
 
 {{% notice style="tip" %}}
@@ -289,11 +337,11 @@ Some serious information.
 ### With User-Defined Color, Font Awesome Brand Icon and Markdown Title
 
 ````go
-{{%/* notice color="fuchsia" title="**Hugo**" icon="fab fa-hackerrank" */%}}
+{{%/* notice color="fuchsia" title="**Hugo**" icon="fa-fw fab fa-hackerrank" */%}}
 Victor? Is it you?
 {{%/* /notice */%}}
 ````
 
-{{% notice color="fuchsia" title="**Hugo**" icon="fab fa-hackerrank" %}}
+{{% notice color="fuchsia" title="**Hugo**" icon="fa-fw fab fa-hackerrank" %}}
 Victor? Is it you?
 {{% /notice %}}

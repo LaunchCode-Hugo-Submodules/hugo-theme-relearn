@@ -3,56 +3,77 @@ title = "Customization"
 weight = 25
 +++
 
-## Serving your page from a subfolder
+## Usage scenarios
 
-If your site is served from a subfolder, eg. `https://example.com/mysite/`, you have to set the following lines to your `hugo.toml`
+The theme is usable in different scenarios, requiring the following mandatory settings in your `hugo.toml`. All settings not mentioned can be set to your liking.
 
-````toml
+### Public Web Server from Root
+
+{{< multiconfig file=hugo >}}
+baseURL = "https://example.com/"
+{{< /multiconfig >}}
+
+### Public Web Server from Subdirectory
+
+{{< multiconfig file=hugo >}}
 baseURL = "https://example.com/mysite/"
-canonifyURLs = true
+relativeURLs = false
+{{< /multiconfig >}}
+
+### Private Web Server (LAN)
+
+The same settings as with any of the public web server usage scenarios or
+
+{{< multiconfig file=hugo >}}
+baseURL = "/"
 relativeURLs = true
-````
+{{< /multiconfig >}}
 
-Without `canonifyURLs=true` URLs in sublemental pages (like `sitemap.xml`, `rss.xml`) will be generated falsly while your HTML files will still work. See https://github.com/gohugoio/hugo/issues/5226.
+### File System
 
-## Serving your page from the filesystem
-
-If you want your page served from the filesystem by using URLs starting with `file://` you'll need the following configuration in your `hugo.toml`:
-
-````toml
+{{< multiconfig file=hugo >}}
+baseURL = "/"
 relativeURLs = true
-````
+{{< /multiconfig >}}
 
-The theme will append an additional `index.html` to all page bundle links by default to make the page be servable from the file system. If you don't care about the file system and only serve your page via a webserver you can also generate the links without this change by adding this to your `hugo.toml`
+{{% notice warning %}}
+Using a `baseURL` with a subdirectory and `relativeURLs=true` are mutually exclusive due to the fact, that [Hugo does not apply the `baseURL` correctly](https://github.com/gohugoio/hugo/issues/12130).
 
-````toml
-[params]
-  disableExplicitIndexURLs = true
-````
+If you need both, you have to generate your site twice but with different settings into separate directories.
+{{% /notice %}}
 
 {{% notice note %}}
-If you want to use the search feature from the file system using an older installation of the theme make sure to change your outputformat for the homepage from the now deprecated `JSON` to `SEARCH` [as seen below](#activate-search).
+Sublemental pages (like `sitemap.xml`, `rss.xml`) and generated social media links inside of your pages will always be generated with absolute URLs and will not work if you set `relativeURLs=true`.
+{{% /notice %}}
+
+{{% notice info %}}
+If you are using `uglyURLs=false` (Hugo's default), the theme will append an additional `index.html` to all page links to make your site be servable from the file system. If you don't care about the file system and only serve your page via a web server you can generate the links without this:
+
+{{< multiconfig file=hugo >}}
+[params]
+  disableExplicitIndexURLs = true
+{{< /multiconfig >}}
 {{% /notice %}}
 
 ## Activate search
 
 If not already present, add the following lines in your `hugo.toml` file.
 
-```toml
+{{< multiconfig file=hugo >}}
 [outputs]
-  home = ["HTML", "RSS", "SEARCH"]
-```
+  home = ["html", "rss", "search"]
+{{< /multiconfig >}}
 
-This will generate a search index file at the root of your public folder ready to be consumed by the Lunr search library. Note that the `SEARCH` outputformat was named `JSON` in previous releases but was implemented differently. Although `JSON` still works, it is now deprecated.
+This will generate a search index file at the root of your public folder ready to be consumed by the Lunr search library.
 
 ### Activate dedicated search page
 
-You can add a dedicated search page for your page by adding the `SEARCHPAGE` outputformat to your home page by adding the following lines in your `hugo.toml` file. This will cause Hugo to generate a new file `http://example.com/mysite/search.html`.
+You can add a dedicated search page for your page by adding the `searchpage` outputformat to your home page by adding the following lines in your `hugo.toml` file. This will cause Hugo to generate a new file `http://example.com/mysite/search.html`.
 
-```toml
+{{< multiconfig file=hugo >}}
 [outputs]
-  home = ["HTML", "RSS", "SEARCH", "SEARCHPAGE"]
-```
+  home = ["html", "rss", "search", "searchpage"]
+{{< /multiconfig >}}
 
 You can access this page by either clicking on the magnifier glass or by typing some search term and pressing `ENTER` inside of the menu's search box .
 
@@ -66,21 +87,21 @@ To make sure, there is no duplicate content for any given URL of your project, r
 
 ## Activate print support
 
-You can activate print support to add the capability to print whole chapters or even the complete site. Just add the `PRINT` output format to your home, section and page in your `hugo.toml` as seen below:
+You can activate print support to add the capability to print whole chapters or even the complete site. Just add the `print` output format to your home, section and page in your `hugo.toml` as seen below:
 
-```toml
+{{< multiconfig file=hugo >}}
 [outputs]
-  home = ["HTML", "RSS", "PRINT", "SEARCH"]
-  section = ["HTML", "RSS", "PRINT"]
-  page = ["HTML", "RSS", "PRINT"]
-```
+  home = ["html", "rss", "print", "search"]
+  section = ["html", "rss", "print"]
+  page = ["html", "rss", "print"]
+{{< /multiconfig >}}
 
 This will add a little printer icon in the top bar. It will switch the page to print preview when clicked. You can then send this page to the printer by using your browser's usual print functionality.
 
 {{% notice note %}}
 The resulting URL will not be [configured ugly](https://gohugo.io/templates/output-formats/#configure-output-formats) in terms of [Hugo's URL handling](https://gohugo.io/content-management/urls/#ugly-urls) even if you've set `uglyURLs=true` in your `hugo.toml`. This is due to the fact that for one mime type only one suffix can be configured.
 
-Nevertheless, if you're unhappy with the resulting URLs you can manually redefine `outputFormats.PRINT` in your own `hugo.toml` to your liking.
+Nevertheless, if you're unhappy with the resulting URLs you can manually redefine `outputFormats.print` in your own `hugo.toml` to your liking.
 {{% /notice %}}
 
 ## Home Button Configuration
@@ -89,25 +110,21 @@ If the `disableLandingPageButton` option is set to `false`, a Home button will a
 on the left menu. It is an alternative for clicking on the logo. To edit the
 appearance, you will have to configure the `landingPageName` for the defined languages:
 
-```toml
+{{< multiconfig file=hugo >}}
 [languages]
 [languages.en]
-...
 [languages.en.params]
-landingPageName = "<i class='fas fa-home'></i> Home"
-...
+landingPageName = "<i class='fa-fw fas fa-home'></i> Home"
 [languages.pir]
-...
 [languages.pir.params]
-landingPageName = "<i class='fas fa-home'></i> Arrr! Homme"
-...
-```
+landingPageName = "<i class='fa-fw fas fa-home'></i> Arrr! Homme"
+{{< /multiconfig >}}
 
 If this option is not configured for a specific language, they will get their default values:
 
-```toml
-landingPageName = "<i class='fas fa-home'></i> Home"
-```
+{{< multiconfig >}}
+landingPageName = "<i class='fa-fw fas fa-home'></i> Home"
+{{< /multiconfig >}}
 
 The home button is going to look like this:
 
@@ -123,46 +140,63 @@ The menu width adjusts automatically for different screen sizes.
 
 | Name | Screen Width  | Menu Width |
 | ---- | ------------- | ---------- |
-| S    | < 48rem       | 0          |
+| S    | < 48rem       | 14.375rem  |
 | M    | 48rem - 60rem | 14.375rem  |
 | L    | >= 60rem      | 18.75rem   |
 
 The values for the screen width breakpoints aren't configurable.
 
-If you want to adjust the menu width you can define the following CSS variables in your `custom-header.html`. Note that `--MENU-WIDTH-S` doesn't exist as the menu is always hidden for small screen sizes.
+If you want to adjust the menu width you can define the following CSS variables in your `custom-header.html`. Note that `--MENU-WIDTH-S` applies to the menu flyout width in mobile mode for small screen sizes.
 
 ````css
 :root {
+    --MENU-WIDTH-S: 14.375rem;
     --MENU-WIDTH-M: 14.375rem;
     --MENU-WIDTH-L: 18.75rem;
 }
 ````
 
+## Change the Main Area's Max Width
+
+By default the main area width will only grow to a certain extent if more vertical screen space is available. This is done for readability purposes as long line are usually harder to read.
+
+If you are unhappy with the default, you can define the following CSS variable in your `custom-header.html` and set the value to your liking. If you want to use all available space, select a really big value like `1000rem`;
+
+````css
+:root {
+    --MAIN-WIDTH-MAX: 80.25rem;
+}
+````
+
 ## Own Shortcodes with JavaScript Dependencies
 
-Certain shortcodes make use of additional JavaScript files. The theme only loads these dependencies if the shortcode is used. To do so correctly the theme adds management code in various files.
+Certain shortcodes make use of additional dependencies like JavaScript and CSS files. The theme only loads these dependencies if the shortcode is used. To do so correctly the theme adds management code in various files.
 
 You can you use this mechanism in your own shortcodes. Say you want to add a shortcode `myshortcode` that also requires the `jquery` JavaScript library.
 
 1. Write the shortcode file `layouts/shortcodes/myshortcode.html` and add the following line
 
-    ````go
-   {{- .Store.Set "hasMyShortcode" true }}
+    ````go {title="layouts/shortcodes/myshortcode.html"}
+   {{- .Page.Store.Set "hasMyShortcode" true }}
     ````
 
 1. Add the following snippet to your `hugo.toml`
 
-    ````go
+    {{< multiconfig file=hugo >}}
     [params.relearn.dependencies]
       [params.relearn.dependencies.myshortcode]
         name = "MyShortcode"
-        location = "footer"
-    ````
+    {{< /multiconfig >}}
 
-1. Add the dependency loader file `layouts/partials/dependencies/myshortcode.html`. The loader file will be appended to your header or footer, dependend on the `location` setting in your `hugo.toml`.
+1. Add the dependency loader file `layouts/partials/dependencies/myshortcode.html`. The loader file will be called from multiple locations inside of the theme with the parameter `page` containing the current [page](https://gohugo.io/methods/page/) variable and `location` with one of the currently defined locations
 
-    ````html
-    <script src="https://www.unpkg.com/jquery/dist/jquery.js"></script>
+    * `header`: if called at the end of the HTML `head` element
+    * `footer`: if called at the end of the HTML `body` element
+
+    ````go {title="layouts/partials/dependencies/myshortcode.html"}
+    {{- if eq .location "footer" }}
+      <script src="https://www.unpkg.com/jquery/dist/jquery.js"></script>
+    {{- end }}
     ````
 
 Character casing is relevant!
@@ -171,6 +205,15 @@ Character casing is relevant!
 - the key on `params.relearn.dependencies` in your `hugo.toml` must match the base file name of your loader file.
 
 See the `math`, `mermaid` and `openapi` shortcodes for examples.
+
+{{% notice note %}}
+If you are really into customization of the theme and want to use the dependency loader for your own locations, you can do this by simply calling it from inside of your overriden partials
+
+````go
+{{- partial "dependencies.html" (dict "page" . "location" "mylocation") }}
+````
+
+{{% /notice %}}
 
 ## Output Formats
 
@@ -210,7 +253,7 @@ This theme defines the following partials :
 - `meta.html`: HTML meta tags, if you want to change default behavior
 - `menu-pre.html`: side-wide configuration to prepend to menu items. If you override this, it is your responsibility to take the page's `menuPre` setting into account.
 - `menu-post.html`: side-wide configuration to append to menu items. If you override this, it is your responsibility to take the page's `menuPost` setting into account.
-- `menu-footer.html`: footer of the the left menu
+- `menu-footer.html`: footer of the left menu
 - `toc.html`: table of contents
 - `content.html`: the content page itself. This can be overridden if you want to display page's meta data above or below the content.
 - `content-header.html`: header above the title, has a default implementation but you can overwrite it if you don't like it.

@@ -23,7 +23,7 @@ The default configuration comes with three predefined areas that may contain an 
 - [**end**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/area/end.html): shown on the opposite breadcrumb side in comparison to the _start_ area
 - [**more**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/area/more.html): shown when pressing the {{% button style="transparent" icon="ellipsis-v" %}}{{% /button %}} _more_ button in the topbar
 
-While you can not add additional areas in the topbar, you are free to configure addtional buttons that behave like the _more_ button, providing further user defined areas.
+While you can not add additional areas in the topbar, you are free to configure additional buttons that behave like the _more_ button, providing further user defined areas.
 
 ## Buttons
 
@@ -31,8 +31,8 @@ The theme ships with the following predefined buttons (from left to right in the
 
 - {{% button style="transparent" icon="bars" %}}{{% /button %}} [**sidebar**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/sidebar.html): opens the sidebar flyout if in mobile layout
 - {{% button style="transparent" icon="list-alt" %}}{{% /button %}} [**toc**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/toc.html): opens the table of contents in an overlay
-- {{% button style="transparent" icon="pen" %}}{{% /button %}} [**edit**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/edit.html): browses to the editable page if the `editURL` [parameter is set](/basics/configuration)
-- {{% button style="transparent" icon="print" %}}{{% /button %}} [**print**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/print.html): browses to the chapters printable page if [print support](/basics/customization#activate-print-support) was activated
+- {{% button style="transparent" icon="pen" %}}{{% /button %}} [**edit**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/edit.html): browses to the editable page if the `editURL` [parameter is set](basics/configuration)
+- {{% button style="transparent" icon="print" %}}{{% /button %}} [**print**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/print.html): browses to the chapters printable page if [print support](basics/customization#activate-print-support) was activated
 - {{% button style="transparent" icon="chevron-left" %}}{{% /button %}} [**prev**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/prev.html): browses to the previous page if there is one
 - {{% button style="transparent" icon="chevron-right" %}}{{% /button %}} [**next**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/next.html): browses to the next page if there is one
 - {{% button style="transparent" icon="ellipsis-v" %}}{{% /button %}} [**more**](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/more.html): opens the overlay for the _more_ area
@@ -49,8 +49,8 @@ The below example sets an explicit value for the `onempty` parameter, overriding
 
 ````go
 {{ partial "topbar/button/more.html" (dict
-    "page" .
-    "onempty" "disable"
+  "page" .
+  "onempty" "disable"
 )}}
 ````
 
@@ -58,7 +58,7 @@ The below example sets an explicit value for the `onempty` parameter, overriding
 
 ### Button Types
 
-The theme distingushies between two types of buttons:
+The theme distinguishes between two types of buttons:
 
 - [**button**](#button): a clickable button that either browses to another site, triggers a user defined script or opens an overlay containing user defined content
 - [**area-button**](#area-button): the template for the {{% button style="transparent" icon="ellipsis-v" %}}{{% /button %}} _more_ button, to define your own area overlay buttons
@@ -81,11 +81,11 @@ For each width class, you can configure one of the following actions:
 
 #### Hiding and Disabling Stuff
 
-While hiding a button dependend on the screen size can be configured with the above described _hide_ action, you may want to hide the button on certain other conditions aswell.
+While hiding a button depending on the screen size can be configured with the above described _hide_ action, you may want to hide the button on certain other conditions as well.
 
 For example, the _print_ button in its default configuration should only be displayed if print support was configured. This is done in your button template by checking the conditions first before displaying the button (see [`layouts/partials/topbar/button/print.html`](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/print.html)).
 
-Another prefered condition for hiding a button is, if the displayed overlay is empty. This is the case for the _toc_ (see [`layouts/partials/topbar/button/toc.html`](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/toc.html)) aswell as the _more_ button (see [`layouts/partials/topbar/button/more.html`](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/more.html)) and controlled by the parameter `onempty`.
+Another preferred condition for hiding a button is, if the displayed overlay is empty. This is the case for the _toc_ (see [`layouts/partials/topbar/button/toc.html`](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/toc.html)) as well as the _more_ button (see [`layouts/partials/topbar/button/more.html`](https://github.com/McShelby/hugo-theme-relearn/blob/main/layouts/partials/topbar/button/more.html)) and controlled by the parameter `onempty`.
 
 This parameter can have one of the following values:
 
@@ -112,7 +112,7 @@ For displaying an area in the button's overlay, see [Area-Button](#area-button).
 | **class**             | _&lt;empty&gt;_ | Mandatory unique class name for this button. Displaying two buttons with the same value for **class** is undefined. |
 | **href**              | _&lt;empty&gt;_ | Either the destination URL for the button or JavaScript code to be executed on click.<br><br>- if starting with `javascript:` all following text will be executed in your browser<br>- every other string will be interpreted as URL<br>- if empty the button will be displayed in disabled state regardless of its **content** |
 | **icon**              | _&lt;empty&gt;_ | [Font Awesome icon name](shortcodes/icon#finding-an-icon). |
-| **onempty**           | `disable`       | Defines what to do with the button if **href** is not empty but the content overlay is empty:<br><br>- `disable`: The button is displayed in disabled state.<br>- `hide`: The button is removed. |
+| **onempty**           | `disable`       | Defines what to do with the button if the content parameter was set but ends up empty:<br><br>- `disable`: The button is displayed in disabled state.<br>- `hide`: The button is removed. |
 | **onwidths**          | `show`          | The action, that should be executed if the site is displayed in the given width:<br><br>- `show`: The button is displayed in its given area<br>- `hide`: The button is removed.<br>- `area-XXX`: The button is moved from its given area into the area `XXX`. |
 | **onwidthm**          | `show`          | See above. |
 | **onwidthl**          | `show`          | See above. |

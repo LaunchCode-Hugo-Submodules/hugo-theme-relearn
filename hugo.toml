@@ -1,30 +1,30 @@
 [module]
   [module.hugoVersion]
-    min = "0.112.4"
+    min = "0.121.0"
 
 [mediaTypes]
   [mediaTypes."text/javascript"]
     suffixes = ["js"]
 
 [outputFormats]
-  [outputFormats.PRINT]
-    name= "PRINT"
+  [outputFormats.print]
+    name= "print"
     baseName = "index.print"
     isHTML = true
     mediaType = 'text/html'
     permalinkable = false
     noUgly = true
 
-  [outputFormats.SEARCH]
-    name= "SEARCH"
+  [outputFormats.search]
+    name= "search"
     baseName = "index.search"
     isPlainText = true
     mediaType = 'text/javascript'
     permalinkable = false
     noUgly = true
 
-  [outputFormats.SEARCHPAGE]
-    name= "SEARCHPAGE"
+  [outputFormats.searchpage]
+    name= "searchpage"
     baseName = "search"
     isHTML = true
     mediaType = 'text/html'
@@ -34,10 +34,7 @@
 [params.relearn.dependencies]
   [params.relearn.dependencies.mathjax]
     name = "MathJax"
-    location = "footer"
   [params.relearn.dependencies.mermaid]
     name = "Mermaid"
-    location = "footer"
   [params.relearn.dependencies.openapi]
     name = "OpenApi"
-    location = "footer"

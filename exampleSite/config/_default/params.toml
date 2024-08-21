@@ -1,9 +1,9 @@
 # If an option value is said to be not set, you can achieve the same behavior
-# by given it an empty string value.
+# by giving it an empty string value.
 
 ###############################################################################
 # Hugo
-# These options usually apply to other themes aswell.
+# These options usually apply to other themes as well.
 
 # The author of your site.
 # Default: not set
@@ -19,13 +19,6 @@ author.name = "Sören Weber"
 # This can be overridden in the page's frontmatter.
 images = [ "images/hero.png" ]
 
-# The description of your site.
-# Default: not set
-# This is used for generating HTML meta tags, social media meta information
-# for the opengraph protocol and twitter cards.
-# This can be overridden in the page's frontmatter.
-description = "Documentation for Hugo Relearn Theme"
-
 # Admin options for social media.
 # Default: not set
 # Configuration for the Open Graph protocol and Twitter Cards adhere to Hugo's
@@ -38,8 +31,8 @@ social.twitter = ""
 # These options are specific to the Relearn theme.
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Variants
-# These options set your color variant.
+# Branding
+# These options set your overall visual appearance.
 
 # Used color variants.
 # Default: "auto"
@@ -57,7 +50,7 @@ social.twitter = ""
 # The theme ships with the following variants: "relearn-bright",
 # "relearn-light", "relearn-dark", "zen-light", "zen-dark", "neon", "learn",
 # "blue", "green", "red". In addition you can use auto mode variants. See the
-# docs for a detailed explaination.
+# docs for a detailed explanation.
 # You can also define your own variants. See the docs how this works. Also,
 # the docs provide an interactive theme generator to help you with this task.
 themeVariant = [
@@ -68,23 +61,13 @@ themeVariant = [
 	{ identifier = "zen-auto",      name = "Zen Light/Dark", auto = [ "zen-light", "zen-dark" ] },
 	{ identifier = "zen-light"      },
 	{ identifier = "zen-dark"       },
+	{ identifier = "retro-auto",    name = "Retro Learn/Neon", auto = [ "learn", "neon" ] },
 	{ identifier = "neon"           },
 	{ identifier = "learn"          },
 	{ identifier = "blue"           },
 	{ identifier = "green"          },
 	{ identifier = "red"            }
 ]
-
-# Filename suffix for variant files.
-# Default: not set
-# The theme modifies the variant stylesheets during build and tries to store
-# them with the same file name. In certain installations it was observed, that
-# Hugo could not overwrite these files due to permission issues. If you
-# experience this, you can first try to set the `--noChmod` option for Hugo.
-# If this still doesn't help you can set this option to eg. ".gen". This will
-# be used as a suffix for these generated files, causing them to be newly
-# created instead of overwriting the existing ones.
-themeVariantModifier = ""
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # General
@@ -102,7 +85,7 @@ disableAssetsBusting = false
 # Avoid generator meta tags.
 # Default: false
 # Set this to true if you want to disable generation for generator meta tags
-# of Hugo and the theme in your HTML head. In tihs case also don't forget to
+# of Hugo and the theme in your HTML head. In this case also don't forget to
 # set Hugo's disableHugoGeneratorInject=true. Otherwise Hugo will generate a
 # meta tag into your home page anyways.
 disableGeneratorVersion = false
@@ -157,19 +140,21 @@ disableNextPrev = false
 # The URL prefix to edit a page.
 # Default: not set
 # If set, an edit button will be shown in the topbar. If the button is hidden,
-# also the keyboard shortcuts are disabled. The given URL is prepended to the
-# relative file path of a the displayed page. The URL must end with a `/`.
-# This is useful if you wnat to give the opportunity for people to create merge
-#  request for your content.
-editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/"
+# also the keyboard shortcuts are disabled. The value can contain the macro
+# `${FilePath}` which will be replaced by the file path of your displayed page.
+# If no `${FilePath}` is given in the value, the value is treated as if the
+# `${FilePath}` was appended at the end of the value. This can be overridden
+# in the pages frontmatter. This is useful if you want to give the opportunity
+# for people to create merge request for your content.
+editURL = "https://github.com/McShelby/hugo-theme-relearn/edit/main/exampleSite/content/${FilePath}"
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Menu
-# These options modify the menu apperance.
+# These options modify the menu appearance.
 
 # Hide the search box.
 # Default: false
-# If the searc box is sisabled, the search functionality is disabled too.
+# If the search box is disabled, the search functionality is disabled too.
 # This will also cause the keyboard shortcut to be disabled and the dedicated
 # search page is not linked although it mighty be configured.
 disableSearch = false
@@ -219,7 +204,7 @@ disableShortcutsTitle = false
 # Hide the language switcher.
 # Default: false
 # If you have more than one language configured, a language switcher is
-# displayed in the lower part of the menu. This opition lets you explicitly
+# displayed in the lower part of the menu. This option lets you explicitly
 # turn this behavior off.
 disableLanguageSwitchingButton = false
 
@@ -307,17 +292,44 @@ disableHoverBlockCopyToClipBoard = false
 highlightWrap = true
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Include
+# These options configure how the include shortcode works.
+
+# What to do when path is not resolved.
+# Default: ""
+# You can control what should happen if a path can not be resolved to as
+# a resource or via the file system. If not set, no output will be written
+# for the unresolved path. If set to `warning` the same happens and an additional
+# warning is printed. If set to `error` an error message is printed and the build
+# is aborted.
+# This can be overridden in the page's frontmatter.
+include.errorlevel = "error"
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Images
 # These options configure how images are displayed.
+
+# What to do when local image link is not resolved.
+# Default: ""
+# You can control what should happen if a local image can not be resolved to as
+# a resource. If not set, the unresolved link is written as given into the resulting
+# output. If set to `warning` the same happens and an additional warning is
+# printed. If set to `error` an error message is printed and the build is
+# aborted.
+# Please note that this can not resolve files inside of your `static` directory.
+# This can be overridden in the page's frontmatter.
+image.errorlevel = "error"
 
 # Image effects.
 # See the documentation for how you can even add your own arbitrary effects to
 # the list.
-# All effects can be overridden in the page's frontmatter or thru URL parameter
+# All effects can be overridden in the page's frontmatter or through URL parameter
 # given to the image. See the documentation for details.
 
 # Default: false
 imageEffects.border = true
+# Default: true
+imageEffects.lazy = true
 # Default: true
 imageEffects.lightbox = true
 # Default: false
@@ -327,13 +339,35 @@ imageEffects.shadow = false
 # Links
 # These options configure how links are displayed.
 
+# Wether to use Hugo's default relref shortcode implementation
+# Default: false
+# Since the theme provides a link render hook, the usage of the relref shortcode
+# is obsolete. If a site still uses that shortcode, it fails to generate a
+# correct links if the baseURL is configured with a subdirectory and relativeURLs=false.
+# The theme provides an overriden relref shortcode that also works in the
+# above setup but must manually be activated by setting this option to true.
+# See discussion in https://github.com/McShelby/hugo-theme-relearn/discussions/862
+disableDefaultRelref = false
+
+# What to do when local page link is not resolved.
+# Default: ""
+# You can control what should happen if a local link can not be resolved to a
+# page. If not set, the unresolved link is written as given into the resulting
+# output. If set to `warning` the same happens and an additional warning is
+# printed. If set to `error` an error message is printed and the build is
+# aborted.
+# Please note that with Hugo < 0.123.0 + `uglyURLs=true` this can lead to false
+# negatives.
+# This can be overridden in the page's frontmatter.
+link.errorlevel = "error"
+
 # How to open external links.
 # Default: "_blank"
 # For external links you can define how they are opened in your browser. All
 # values for the HTML `target` attribute of the `a` element are allowed. The
 # default value opens external links in a separate browser tab. If you want
 # to open those links in the same tab, use "_self".
-externalLinkTarget = "_blank"
+externalLinkTarget = "_self"
 
 # Generate link URLs the Hugo way.
 # Default: false
@@ -357,7 +391,7 @@ mathJaxInitialize = "{}"
 # If a Math shortcode is found, the option will be ignored and
 # MathJax will be loaded regardlessly. The option is still useful in case you
 # are using scripting to set up your graph. In this case no shortcode or
-# codefence is involved and the library is not loaded by default. In this case
+# Markdown codefence is involved and the library is not loaded by default. In this case
 # you can set `disableMathJax=false` in your frontmatter to force the library to
 # be loaded.
 # This can be overridden in the page's frontmatter.
@@ -390,10 +424,10 @@ mermaidInitialize = "{ \"securityLevel\": \"loose\" }"
 
 # Only load Mermaid if needed.
 # Default: true
-# If a Mermaid shortcode or codefence is found, the option will be ignored and
+# If a Mermaid shortcode or Markdown codefence is found, the option will be ignored and
 # Mermaid will be loaded regardlessly. The option is still useful in case you
 # are using scripting to set up your graph. In this case no shortcode or
-# codefence is involved and the library is not loaded by default. In this case
+# Markdown codefence is involved and the library is not loaded by default. In this case
 # you can set `disableMermaid=false` in your frontmatter to force the library to
 # be loaded.
 # This can be overridden in the page's frontmatter.
@@ -407,6 +441,16 @@ disableMermaid = true
 customMermaidURL = "" # "https://unpkg.com/mermaid/dist/mermaid.min.js"
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Notice
+# These options configure how notices are displayed.
+
+# Wether to add support for Relearn's additional notice styles
+# Default: false
+# If this value is set to false, GitHub's alerts extension also recognises
+# the additional Relearn styles like "info".
+disableBlockquoteNoticeSupport = false
+
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # OpenApi
 # These options configure how OpenAPI specifications are displayed.
 
@@ -415,7 +459,7 @@ customMermaidURL = "" # "https://unpkg.com/mermaid/dist/mermaid.min.js"
 # If a OpenAPI shortcode is found, the option will be ignored and
 # OpenAPI will be loaded regardlessly. The option is still useful in case you
 # are using scripting to set up your graph. In this case no shortcode or
-# codefence is involved and the library is not loaded by default. In this case
+# Markdown codefence is involved and the library is not loaded by default. In this case
 # you can set `disableOpenapi=false` in your frontmatter to force the library to
 # be loaded.
 # This can be overridden in the page's frontmatter.
@@ -427,3 +471,14 @@ disableOpenapi = true
 # version will be used.
 # This can be overridden in the page's frontmatter.
 customOpenapiURL = "" # "https://unpkg.com/swagger-ui-dist/swagger-ui-bundle.js"
+
+# What to do when a local OpenAPI spec link is not resolved.
+# Default: ""
+# You can control what should happen if a local OpenAPI spec link can not be resolved
+# to a resource. If not set, the unresolved link is written as given into the resulting
+# output. If set to `warning` the same happens and an additional warning is
+# printed. If set to `error` an error message is printed and the build is
+# aborted.
+# Please note that this can not resolve files inside of your `static` directory.
+# This can be overridden in the page's frontmatter.
+openapi.errorlevel = "error"
