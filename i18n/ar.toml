@@ -1,6 +1,9 @@
 [Reading-direction]
 other = "rtl"
 
+[Versioning-warning]
+other = 'أنت تقرأ الإصدار {{.pageVersion.title}} من هذه الصفحة. يمكن العثور على الإصدار الحالي <a href="{{.latestUrl}}">هنا</a>.'
+
 [Search]
 other = "البحث"
 
@@ -37,8 +40,17 @@ other = ".¯\\_(ツ)_/¯أوبس. يبدو أن هذه الصفحة غير مو�
 [Go-to-homepage]
 other = "الذهاب إلى الصفحة الرئيسية"
 
+[home-button]
+other = "Home"
+
 [Edit-this-page]
 other = "حرر"
+
+[Show-Markdown]
+other = "إظهار Markdown"
+
+[Show-source]
+other = "إظهار شفرة المصدر"
 
 [Print-this-chapter]
 other = "طباعة الفصل بأكمله"
@@ -46,7 +58,7 @@ other = "طباعة الفصل بأكمله"
 [More-action]
 other = "المزيد"
 
-[Shortcuts-Title]
+[shortcuts-menuTitle]
 other = "المزيد"
 
 [Expand-title]
@@ -77,10 +89,10 @@ other = "مهم"
 other = "معلومات"
 
 [note]
-other = "ملاحظه"
+other = "ملاحظة"
 
 [tip]
-other = "بقشيش"
+other = "نصيحة"
 
 [warning]
 other = "تحذير"
@@ -89,13 +101,13 @@ other = "تحذير"
 other = "نسخ إلى الحافظة"
 
 [Copied-to-clipboard]
-other = "نسخت إلى الحافظة!"
+other = "نسخ إلى الحافظة!"
 
 [Copy-link-to-clipboard]
 other = "نسخ الرابط إلى الحافظة"
 
 [Link-copied-to-clipboard]
-other = "رابط نسخت إلى الحافظة!"
+other = "تم نسخ الرابط إلى الحافظة!"
 
 [Chapter]
 other = "{{.}} الفصل"
@@ -116,10 +128,13 @@ other = "{{.}} الأقسام الفرعية"
 other = "الكلمات الدالة"
 
 [tag]
-other = "كلمة رئيسية"
+other = "وسم"
 
 [categories]
 other = "فئات"
 
 [category]
 other = "فئة"
+
+[Details]
+other = "التفاصيل"
